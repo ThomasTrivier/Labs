@@ -15,6 +15,11 @@ class CreateAboutsTable extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->text('text-left');
+            $table->text('text-right');
+            $table->string('button-text');
+            $table->string('video-url');
             $table->timestamps();
         });
     }
