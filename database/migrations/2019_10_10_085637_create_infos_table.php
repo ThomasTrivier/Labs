@@ -20,7 +20,6 @@ class CreateInfosTable extends Migration
             $table->string('building_name');
             $table->string('adress_part_1');
             $table->string('adress_part_2');
-            $table->string('title');
             $table->string('tel');
             $table->string('email');
             $table->timestamps();
