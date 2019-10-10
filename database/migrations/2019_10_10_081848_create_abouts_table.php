@@ -15,7 +15,9 @@ class CreateAboutsTable extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
+            $table->string('title-left');
+            $table->string('span');
+            $table->string('title-right');
             $table->text('text-left');
             $table->text('text-right');
             $table->string('button-text');
