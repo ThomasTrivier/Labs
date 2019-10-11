@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Media;
+use App\Image;
 
-class MediasTableSeeder extends Seeder
+class ImagesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,18 +12,18 @@ class MediasTableSeeder extends Seeder
      */
     public function run()
     {
-        Media::truncate();
-        Media::create([
+        Image::truncate();
+        Image::create([
             'placement' => 'navbar',
             'media_path' => 'img/logo.png',
         ]);
 
-        Media::create([
+        Image::create([
             'placement' => 'carousel',
             'media_path' => 'img/01.jpg',
         ]);
 
-        Media::create([
+        Image::create([
             'placement' => 'carousel',
             'media_path' => 'img/02.jpg',
         ]);
