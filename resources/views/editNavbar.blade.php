@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <h1>Edit About</h1>
+    <h1>Edit Navbar</h1>
 
     <form action="/navbar/update" method="post">
         @csrf

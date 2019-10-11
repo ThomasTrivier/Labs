@@ -38,3 +38,8 @@ Route::patch('/navbar/update', 'NavbarController@update')->middleware(['auth', '
 Route::get('about/edit', 'AboutController@edit')->middleware(['auth', 'verifyisadmin']);
 
 Route::patch('/about/update', 'AboutController@update')->middleware(['auth', 'verifyisadmin']);
+
+//Section Infos
+Route::get('infos/edit', 'InfosController@edit')->middleware(['auth', 'verifyisadmin']);
+
+Route::patch('/infos/update', 'InfosController@update')->middleware(['auth', 'verifyisadmin']);
