@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Info;
 
 class InfosTableSeeder extends Seeder
 {
@@ -11,7 +12,8 @@ class InfosTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('infos')->insert([
+        Info::truncate();
+        Info::create([
             'title' => 'Contact us',
             'description' => 'Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum.',
             'building_name' => 'Main Office',

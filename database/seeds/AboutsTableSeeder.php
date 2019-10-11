@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\About;
 
 class AboutsTableSeeder extends Seeder
 {
@@ -11,7 +12,8 @@ class AboutsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('abouts')->insert([
+        About::truncate();
+        About::create([
             'title-left' => "Get in ",
             'span' => "the Lab",
             'title-right' => " and discover the world",
