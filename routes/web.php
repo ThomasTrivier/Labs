@@ -28,3 +28,8 @@ Auth::routes();
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware(['auth', 'verifyisadmin']);
+
+//Section About
+Route::get('about/edit', 'AboutController@index');
+
+Route::patch('/about/update', 'AboutController@update');

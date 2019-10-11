@@ -45,7 +45,7 @@
     <div class="about-contant">
         <div class="container">
             <div class="section-title">
-                <h2>{{$about->title_left}}<span>{{$about->span}}</span>{{$about->title_right}}</h2>
+                <h2>{{$about->title_left}} <span>{{$about->span}}</span> {{$about->title_right}}</h2>
             </div>
             <div class="row">
                 <div class="col-md-6">
