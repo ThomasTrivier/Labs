@@ -20,6 +20,9 @@ class CreateSectionInfosTable extends Migration
             $table->string('service_span');
             $table->string('service_title_right');
             $table->string('button_text');
+            $table->string('team_title_left');
+            $table->string('team_span');
+            $table->string('team_title_right');
             $table->timestamps();
         });
     }

@@ -19,6 +19,9 @@ class SectionInfosTableSeeder extends Seeder
             'service_span' => 'the Lab',
             'service_title_right' => 'and see the services',
             'button_text' => 'Browse',
+            'team_title_left' => 'Get in',
+            'team_span' => 'the Lab',
+            'team_title_right' => 'and meet the team',
         ]);
     }
 }
