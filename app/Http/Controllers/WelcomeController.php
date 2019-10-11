@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\About;
 
 class WelcomeController extends Controller
 {
     public function index(){
-        return view('welcome');
+        $about = About::find(1);
+        return view('welcome', compact('about'));
     }
 }

@@ -15,13 +15,13 @@ class CreateAboutsTable extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title-left');
+            $table->string('title_left');
             $table->string('span');
-            $table->string('title-right');
-            $table->text('text-left');
-            $table->text('text-right');
-            $table->string('button-text');
-            $table->string('video-url');
+            $table->string('title_right');
+            $table->text('text_left');
+            $table->text('text_right');
+            $table->string('button_text');
+            $table->string('video_url');
             $table->timestamps();
         });
     }
