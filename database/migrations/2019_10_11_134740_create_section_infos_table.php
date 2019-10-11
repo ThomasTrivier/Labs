@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSectionServicesTable extends Migration
+class CreateSectionInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateSectionServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('section_services', function (Blueprint $table) {
+        Schema::create('section_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title_left');
-            $table->string('span');
-            $table->string('title_right');
+            $table->string('testimonial_title');
+            $table->string('service_title_left');
+            $table->string('service_span');
+            $table->string('service_title_right');
             $table->string('button_text');
             $table->timestamps();
         });
@@ -30,6 +31,6 @@ class CreateSectionServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('section_services');
+        Schema::dropIfExists('section_infos');
     }
 }

@@ -2,7 +2,7 @@
 <div class="services-section spad">
     <div class="container">
         <div class="section-title dark">
-            <h2>{{$sectionS->title_left}} <span>{{$sectionS->span}}</span> {{$sectionS->title_right}}</h2>
+            <h2>{{$sectionIntel->service_title_left}} <span>{{$sectionIntel->service_span}}</span> {{$sectionIntel->service_title_right}}</h2>
         </div>
         <div class="row">
             <!-- single service -->
@@ -21,7 +21,7 @@
             @endforeach
         </div>
         <div class="text-center">
-            <a href="/services" class="site-btn">{{$sectionS->button_text}}</a>
+            <a href="/services" class="site-btn">{{$sectionIntel->button_text}}</a>
         </div>
     </div>
 </div>

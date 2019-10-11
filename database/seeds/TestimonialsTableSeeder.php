@@ -14,7 +14,6 @@ class TestimonialsTableSeeder extends Seeder
     {
         Testimonial::truncate();
         Testimonial::create([
-            'title' => 'What our clients say',
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'photo_path' => 'img/avatar/01.jpg',
             'client_name' => 'Michael Smith',
@@ -22,7 +21,6 @@ class TestimonialsTableSeeder extends Seeder
         ]);
 
         Testimonial::create([
-            'title' => 'What our clients say',
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'photo_path' => 'img/avatar/02.jpg',
             'client_name' => 'Michael Smith',
@@ -30,7 +28,6 @@ class TestimonialsTableSeeder extends Seeder
         ]);
 
         Testimonial::create([
-            'title' => 'What our clients say',
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'photo_path' => 'img/avatar/01.jpg',
             'client_name' => 'Michael Smith',
@@ -38,7 +35,6 @@ class TestimonialsTableSeeder extends Seeder
         ]);
 
         Testimonial::create([
-            'title' => 'What our clients say',
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'photo_path' => 'img/avatar/02.jpg',
             'client_name' => 'Michael Smith',
@@ -46,7 +42,6 @@ class TestimonialsTableSeeder extends Seeder
         ]);
 
         Testimonial::create([
-            'title' => 'What our clients say',
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'photo_path' => 'img/avatar/01.jpg',
             'client_name' => 'Michael Smith',
@@ -54,7 +49,6 @@ class TestimonialsTableSeeder extends Seeder
         ]);
 
         Testimonial::create([
-            'title' => 'What our clients say',
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
             'photo_path' => 'img/avatar/02.jpg',
             'client_name' => 'Michael Smith',
