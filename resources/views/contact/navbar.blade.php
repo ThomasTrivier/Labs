@@ -7,11 +7,10 @@
     <div class="responsive"><i class="fa fa-bars"></i></div>
     <nav>
         <ul class="menu-list">
-            <li><a href="/">Home</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li class="active"><a href="/contact">Contact</a></li>
-            <li><a href="/elements">Elements</a></li>
+            <li><a href="/">{{$nav->nav1}}</a></li>
+            <li><a href="/services">{{$nav->nav2}}</a></li>
+            <li><a href="/blog">{{$nav->nav3}}</a></li>
+            <li class="active"><a href="/contact">{{$nav->nav4}}</a></li>
         </ul>
     </nav>
 </header>

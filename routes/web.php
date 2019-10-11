@@ -29,7 +29,12 @@ Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware(['auth', 'verifyisadmin']);
 
-//Section About
-Route::get('about/edit', 'AboutController@index');
+//Navbar Links
+Route::get('navbar/edit', 'NavbarController@edit')->middleware(['auth', 'verifyisadmin']);
 
-Route::patch('/about/update', 'AboutController@update');
+Route::patch('/navbar/update', 'NavbarController@update')->middleware(['auth', 'verifyisadmin']);
+
+//Section About
+Route::get('about/edit', 'AboutController@edit')->middleware(['auth', 'verifyisadmin']);
+
+Route::patch('/about/update', 'AboutController@update')->middleware(['auth', 'verifyisadmin']);

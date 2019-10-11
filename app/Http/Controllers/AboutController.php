@@ -7,7 +7,7 @@ use App\About;
 
 class AboutController extends Controller
 {
-    public function index(){
+    public function edit(){
         $about = About::find(1);
         return view('editAbout', compact('about'));
     }

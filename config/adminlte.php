@@ -137,11 +137,9 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'text'        => 'Labs',
+            'url'         => '/',
             'icon'        => 'far fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [
@@ -150,13 +148,18 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Navbar',
+            'url'  => 'navbar/edit',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
             'text' => 'About',
             'url'  => 'about/edit',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'Infos',
+            'url'  => 'infos/edit',
             'icon' => 'fas fa-fw fa-lock',
         ],
         ['header' => 'labels'],
