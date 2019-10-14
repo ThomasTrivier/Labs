@@ -21,8 +21,6 @@ Route::get('/post', 'BlogPostController@index');
 
 Route::get('/contact', 'ContactController@index');
 
-Route::get('/elements', 'ElementsController@index');
-
 Auth::routes();
 
 Route::get('/home', function() {
@@ -38,6 +36,9 @@ Route::patch('/navbar/update', 'NavbarController@update')->middleware(['auth', '
 Route::get('about/edit', 'AboutController@edit')->middleware(['auth', 'verifyisadmin']);
 
 Route::patch('/about/update', 'AboutController@update')->middleware(['auth', 'verifyisadmin']);
+
+//Section Services
+Route::resource('admin/services', 'ServicePanelController')->middleware(['auth', 'verifyisadmin']);
 
 //Section Infos
 Route::get('infos/edit', 'InfosController@edit')->middleware(['auth', 'verifyisadmin']);

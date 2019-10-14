@@ -158,6 +158,11 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
+            'text' => 'Services',
+            'url'  => 'admin/services',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
             'text' => 'Infos',
             'url'  => 'infos/edit',
             'icon' => 'fas fa-fw fa-lock',
