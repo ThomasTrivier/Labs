@@ -20,6 +20,7 @@
                 </div>
             @endforeach
         </div>
+        {{$services->links()}}
         <div class="text-center">
             <a href="/services" class="site-btn">{{$sectionIntel->button_text}}</a>
         </div>

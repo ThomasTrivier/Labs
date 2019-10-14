@@ -13,7 +13,7 @@ class ServicesController extends Controller
     public function index(){
         $nav = Navbar::find(1);
         $sectionIntel = SectionInfo::find(1);
-        $services = Service::all();
+        $services = Service::paginate(9);
         $infos = Info::find(1);
         return view('services', compact('nav','sectionIntel','services','infos'));
     }
