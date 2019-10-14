@@ -11,31 +11,33 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Services Table</h3>
-              <a href="{{route('services.create')}}" class="btn btn-success">CREATE</a>
+              <h3 class="box-title">Testimonials Table</h3>
+              <a href="{{route('testimonials.create')}}" class="btn btn-success">CREATE</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tbody><tr>
                   <th>ID</th>
-                  <th>Icon</th>
-                  <th>Title</th>
-                  <th>Description</th>
+                  <th>Photo</th>
+                  <th>Comment</th>
+                  <th>Client Name</th>
+                  <th>Client Function</th>
                 </tr>
-                @foreach ($services as $service)
+                @foreach ($testimonials as $testimonial)
                   <tr>
-                    <td>{{$service->id}}</td>
-                    <td class="icon">
-                        <i class="{{$service->service_icon}}"></i>
+                    <td>{{$testimonial->id}}</td>
+                    <td class="avatar">
+                        <img src="{{asset($testimonial->patch)}}" alt="">
                     </td>
-                    <td>{{$service->service_title}}</td>
-                    <td>{{$service->description}}</td>
+                    <td>{{$testimonial->comment}}</td>
+                    <td>{{$testimonial->client_name}}</td>
+                    <td>{{$testimonial->client_function}}</td>
                     <td>
-                      <a href="{{route('services.edit',$service->id)}}" class="btn btn-primary">UPDATE</a>
+                      <a href="{{route('testimonials.edit',$testimonial->id)}}" class="btn btn-primary">UPDATE</a>
                     </td>
                     <td>
-                      <form action="{{route('services.destroy',$service->id)}}" method="POST">
+                      <form action="{{route('testimonials.destroy',$testimonial->id)}}" method="POST">
                           @csrf
                           @method('DELETE')
                           <button class="btn btn-danger" type="submit">DELETE</button>

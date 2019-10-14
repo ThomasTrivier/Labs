@@ -149,12 +149,17 @@ return [
         ],
         [
             'text' => 'Navbar',
-            'url'  => 'navbar/edit',
+            'url'  => 'admin/navbar/edit',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text' => 'About',
-            'url'  => 'about/edit',
+            'url'  => 'admin/about/edit',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text' => 'Testimonials',
+            'url'  => 'admin/testimonials',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
@@ -164,7 +169,7 @@ return [
         ],
         [
             'text' => 'Infos',
-            'url'  => 'infos/edit',
+            'url'  => 'admin/infos/edit',
             'icon' => 'fas fa-fw fa-lock',
         ],
         ['header' => 'labels'],

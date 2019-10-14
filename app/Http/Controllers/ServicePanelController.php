@@ -55,7 +55,7 @@ class ServicePanelController extends Controller
     public function edit($id)
     {
         $service = Service::find($id);
-        return view('editServices', compact('service'));
+        return view('editService', compact('service'));
     }
 
     /**

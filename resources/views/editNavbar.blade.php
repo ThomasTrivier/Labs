@@ -9,7 +9,7 @@
 @section('content')
     <h1>Edit Navbar</h1>
 
-    <form action="/navbar/update" method="post">
+    <form action="/admin/navbar/update" method="post">
         @csrf
         @method('PATCH')
 

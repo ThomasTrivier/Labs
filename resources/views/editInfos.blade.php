@@ -9,7 +9,7 @@
 @section('content')
     <h1>Edit Infos</h1>
 
-    <form action="/infos/update" method="post">
+    <form action="/admin/infos/update" method="post">
         @csrf
         @method('PATCH')
 

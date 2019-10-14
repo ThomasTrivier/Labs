@@ -28,19 +28,22 @@ Route::get('/home', function() {
 })->name('home')->middleware(['auth', 'verifyisadmin']);
 
 //Navbar Links
-Route::get('navbar/edit', 'NavbarController@edit')->middleware(['auth', 'verifyisadmin']);
+Route::get('admin/navbar/edit', 'NavbarController@edit')->middleware(['auth', 'verifyisadmin']);
 
-Route::patch('/navbar/update', 'NavbarController@update')->middleware(['auth', 'verifyisadmin']);
+Route::patch('/admin/navbar/update', 'NavbarController@update')->middleware(['auth', 'verifyisadmin']);
 
 //Section About
-Route::get('about/edit', 'AboutController@edit')->middleware(['auth', 'verifyisadmin']);
+Route::get('admin/about/edit', 'AboutController@edit')->middleware(['auth', 'verifyisadmin']);
 
-Route::patch('/about/update', 'AboutController@update')->middleware(['auth', 'verifyisadmin']);
+Route::patch('/admin/about/update', 'AboutController@update')->middleware(['auth', 'verifyisadmin']);
+
+//Section Testimonials
+Route::resource('admin/testimonials', 'TestimonialController')->middleware(['auth', 'verifyisadmin']);
 
 //Section Services
 Route::resource('admin/services', 'ServicePanelController')->middleware(['auth', 'verifyisadmin']);
 
 //Section Infos
-Route::get('infos/edit', 'InfosController@edit')->middleware(['auth', 'verifyisadmin']);
+Route::get('admin/infos/edit', 'InfosController@edit')->middleware(['auth', 'verifyisadmin']);
 
-Route::patch('/infos/update', 'InfosController@update')->middleware(['auth', 'verifyisadmin']);
+Route::patch('/admin/infos/update', 'InfosController@update')->middleware(['auth', 'verifyisadmin']);
