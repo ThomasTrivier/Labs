@@ -11,8 +11,8 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Testimonials Table</h3>
-              <a href="{{route('testimonials.create')}}" class="btn btn-success">CREATE</a>
+              <h3 class="box-title">Projects Table</h3>
+              <a href="{{route('projects.create')}}" class="btn btn-success">CREATE</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -20,24 +20,22 @@
                 <tbody><tr>
                   <th>ID</th>
                   <th>Photo</th>
-                  <th>Comment</th>
-                  <th>Client Name</th>
-                  <th>Client Function</th>
+                  <th>Title</th>
+                  <th>Description</th>
                 </tr>
-                @foreach ($testimonials as $testimonial)
+                @foreach ($projects as $project)
                   <tr>
-                    <td>{{$testimonial->id}}</td>
+                    <td>{{$project->id}}</td>
                     <td class="avatar">
-                        <img src="/{{$testimonial->photo_path}}" alt="">
+                        <img src="/{{$project->photo_path}}" alt="">
                     </td>
-                    <td>{{$testimonial->comment}}</td>
-                    <td>{{$testimonial->client_name}}</td>
-                    <td>{{$testimonial->client_function}}</td>
+                    <td>{{$project->title}}</td>
+                    <td>{{$project->description}}</td>
                     <td>
-                      <a href="{{route('testimonials.edit',$testimonial->id)}}" class="btn btn-primary">UPDATE</a>
+                      <a href="{{route('projects.edit',$project->id)}}" class="btn btn-primary">UPDATE</a>
                     </td>
                     <td>
-                      <form action="{{route('testimonials.destroy',$testimonial->id)}}" method="POST">
+                      <form action="{{route('projects.destroy',$project->id)}}" method="POST">
                           @csrf
                           @method('DELETE')
                           <button class="btn btn-danger" type="submit">DELETE</button>

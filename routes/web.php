@@ -43,6 +43,12 @@ Route::resource('admin/testimonials', 'TestimonialController')->middleware(['aut
 //Section Services
 Route::resource('admin/services', 'ServicePanelController')->middleware(['auth', 'verifyisadmin']);
 
+//Section Projets
+Route::resource('admin/projects', 'ProjectController')->middleware(['auth', 'verifyisadmin']);
+
+//Newsletter
+Route::post('newsletter/subscribe', 'NewsletterController@subscribe');
+
 //Section Infos
 Route::get('admin/infos/edit', 'InfosController@edit')->middleware(['auth', 'verifyisadmin']);
 
