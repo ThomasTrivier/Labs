@@ -3,10 +3,10 @@
     <div class="overlay"></div>
     <div class="container text-right">
         <div class="page-info">
-            <h2>Contact</h2>
+            <h2>{{$nav->nav4}}</h2>
             <div class="page-links">
-                <a href="#">Home</a>
-                <span>Contact</span>
+                <a href="#">{{$nav->nav1}}</a>
+                <span>{{$nav->nav4}}</span>
             </div>
         </div>
     </div>
