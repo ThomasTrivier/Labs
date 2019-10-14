@@ -9,7 +9,7 @@
 @endsection
 
 @section('navbar')
-    @include('blog.navbar')
+    @include('home.navbar')
 @endsection
 
 @section('header')

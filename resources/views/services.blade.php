@@ -9,7 +9,7 @@
 @endsection
 
 @section('navbar')
-    @include('services.navbar')
+    @include('home.navbar')
 @endsection
 
 @section('header')
