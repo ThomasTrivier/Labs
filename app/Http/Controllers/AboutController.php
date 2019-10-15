@@ -12,7 +12,7 @@ class AboutController extends Controller
         return view('editAbout', compact('about'));
     }
 
-    public function update(){
+    public function update(Request $req){
         $about = About::find(1);
 
         $about->title_left = request()->input('title_left');
@@ -22,6 +22,12 @@ class AboutController extends Controller
         $about->text_right = request()->input('text_right');
         $about->button_text = request()->input('button_text');
         $about->video_url = request()->input('video_url');
+
+        if ($req->hasFile('preview')) {
+            $file = $req->file("preview");
+            $fileName = $file->store(env('VIDEO_PREVIEW_DIR'));
+            $about->preview = $fileName;
+        }
 
         $about->save();
         return redirect()->route('home');

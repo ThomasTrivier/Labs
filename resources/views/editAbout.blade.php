@@ -44,6 +44,12 @@
         </div>
 
         <div class="form-group">
+          <label for=""></label>
+          <img src="{{asset($about->preview)}}" alt="">
+          <input type="file" name="preview" class="form-control-file" placeholder="" aria-describedby="helpId">
+        </div>
+
+        <div class="form-group">
           <label for="">Video URL</label>
           <input type="text" name="video_url" value="{{$about->video_url}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>

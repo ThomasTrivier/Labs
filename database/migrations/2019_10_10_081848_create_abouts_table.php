@@ -21,6 +21,7 @@ class CreateAboutsTable extends Migration
             $table->text('text_left');
             $table->text('text_right');
             $table->string('button_text');
+            $table->string('preview');
             $table->string('video_url');
             $table->timestamps();
         });

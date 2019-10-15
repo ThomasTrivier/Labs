@@ -183,6 +183,11 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
+            'text' => 'Contacts',
+            'url'  => 'admin/contacts',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
             'text' => 'Infos',
             'url'  => 'admin/infos/edit',
             'icon' => 'fas fa-fw fa-lock',

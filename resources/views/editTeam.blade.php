@@ -14,7 +14,7 @@
         @method('PATCH')
 
         <div class="form-group">
-          <label for="">Photo</label>
+          <label for=""></label>
           <img src="{{asset($member->patch)}}" alt="">
           <input type="file" name="photo_path" class="form-control-file" placeholder="" aria-describedby="helpId">
         </div>

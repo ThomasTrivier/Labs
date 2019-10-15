@@ -15,17 +15,18 @@
             </div>
             <!-- contact form -->
             <div class="col-md-6 col-pull">
-                <form class="form-class" id="con_form">
+                <form class="form-class" id="con_form" method="POST" action="/form">
+                    @csrf
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" name="name" placeholder="Your name">
+                            <input type="text" required class="{{$errors->has('name') ? 'border-danger' : ""}}" name="name" value="{{old('name')}}" placeholder="Your name">
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" name="email" placeholder="Your email">
+                            <input type="text" required class="{{$errors->has('email') ? 'border-danger' : ""}}" name="email" value="{{old('email')}}" placeholder="Your email">
                         </div>
                         <div class="col-sm-12">
-                            <input type="text" name="subject" placeholder="Subject">
-                            <textarea name="message" placeholder="Message"></textarea>
+                            <input type="text" required {{$errors->has('subject') ? 'border-danger' : ""}} name="subject" value="{{old('subject')}}" placeholder="Subject">
+                            <textarea name="message" required {{$errors->has('message') ? 'border-danger' : ""}} placeholder="Message">{{old('message')}}</textarea>
                             <button class="site-btn">send</button>
                         </div>
                     </div>

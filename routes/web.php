@@ -69,6 +69,13 @@ Route::resource('admin/projects', 'ProjectController')->middleware(['auth', 'ver
 //Newsletter
 Route::post('newsletter/subscribe', 'NewsletterController@subscribe');
 
+//Contact Form
+Route::post('/form', 'FormController@create');
+
+Route::get('admin/contacts', 'FormController@index')->middleware(['auth', 'verifyisadmin']);
+
+Route::get('/admin/contacts/{id}/delete', 'FormController@delete')->middleware(['auth', 'verifyisadmin']);
+
 //Section Infos
 Route::get('admin/infos/edit', 'InfosController@edit')->middleware(['auth', 'verifyisadmin']);
 
