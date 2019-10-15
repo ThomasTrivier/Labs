@@ -32,6 +32,21 @@ Route::get('admin/navbar/edit', 'NavbarController@edit')->middleware(['auth', 'v
 
 Route::patch('/admin/navbar/update', 'NavbarController@update')->middleware(['auth', 'verifyisadmin']);
 
+//Medias Images
+Route::get('admin/medias', 'ImageController@index')->middleware(['auth', 'verifyisadmin']);
+
+Route::patch('/admin/medias/logo', 'ImageController@editLogo')->middleware(['auth', 'verifyisadmin']);
+
+Route::get('/admin/medias/{id}/edit', 'ImageController@edit')->middleware(['auth', 'verifyisadmin']);
+
+Route::patch('/admin/medias/{id}/update', 'ImageController@update')->middleware(['auth', 'verifyisadmin']);
+
+Route::get('/admin/medias/create', 'ImageController@create')->middleware(['auth', 'verifyisadmin']);
+
+Route::post('/admin/medias/store', 'ImageController@store')->middleware(['auth', 'verifyisadmin']);
+
+Route::get('/admin/medias/{id}/delete', 'ImageController@delete')->middleware(['auth', 'verifyisadmin']);
+
 //Section About
 Route::get('admin/about/edit', 'AboutController@edit')->middleware(['auth', 'verifyisadmin']);
 

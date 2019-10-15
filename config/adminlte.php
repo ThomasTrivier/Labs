@@ -153,6 +153,11 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
+            'text' => 'Medias',
+            'url'  => 'admin/medias',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
             'text' => 'About',
             'url'  => 'admin/about/edit',
             'icon' => 'fas fa-fw fa-lock',

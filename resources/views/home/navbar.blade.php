@@ -1,7 +1,7 @@
 <!-- Header section -->
 <header class="header-section">
     <div class="logo">
-        <img src="img/logo.png" alt=""><!-- Logo -->
+        <img src="{{asset($logo->patch)}}" alt="" height="32px" width="111px"><!-- Logo -->
     </div>
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>

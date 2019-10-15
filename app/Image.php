@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     public function getPatchAttribute(){
-        $url = $this->photo_path;
+        $url = $this->media_path;
         
-        if (stristr($this->photo_path, 'http') === false ) {
-            $url = "storage/" . $this->photo_path;
+        if (stristr($this->media_path, 'http') === false ) {
+            $url = "storage/" . $this->media_path;
         }
 
         return $url;
