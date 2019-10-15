@@ -55,6 +55,11 @@ Route::patch('/admin/about/update', 'AboutController@update')->middleware(['auth
 //Section Testimonials
 Route::resource('admin/testimonials', 'TestimonialController')->middleware(['auth', 'verifyisadmin']);
 
+//Section Teams
+Route::resource('admin/teams', 'TeamController')->middleware(['auth', 'verifyisadmin']);
+
+Route::patch('/admin/leader', 'TeamController@leader')->middleware(['auth', 'verifyisadmin']);
+
 //Section Services
 Route::resource('admin/services', 'ServicePanelController')->middleware(['auth', 'verifyisadmin']);
 

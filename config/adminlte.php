@@ -168,6 +168,11 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
+            'text' => 'Teams',
+            'url'  => 'admin/teams',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
             'text' => 'Services',
             'url'  => 'admin/services',
             'icon' => 'fas fa-fw fa-lock',

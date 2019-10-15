@@ -27,7 +27,7 @@
                   <tr>
                     <td>{{$project->id}}</td>
                     <td class="avatar">
-                        <img src="/{{$project->photo_path}}" alt="">
+                        <img src="{{asset($project->patch)}}" alt="">
                     </td>
                     <td>{{$project->title}}</td>
                     <td>{{$project->description}}</td>

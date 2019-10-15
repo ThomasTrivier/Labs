@@ -15,42 +15,42 @@ class TestimonialsTableSeeder extends Seeder
         Testimonial::truncate();
         Testimonial::create([
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
-            'photo_path' => 'img/avatar/01.jpg',
+            'photo_path' => 'images/clients/yvphU695DcMgBJoH7Ok01B6Z1GrbCJkUmTTZShAr.jpeg',
             'client_name' => 'Michael Smith',
             'client_function' => 'CEO Company',
         ]);
 
         Testimonial::create([
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
-            'photo_path' => 'img/avatar/02.jpg',
+            'photo_path' => 'images/clients/lQXwywvovXlrp2Z8sVOeYmqyMOezn2c6ChnZ5chZ.jpeg',
             'client_name' => 'Michael Smith',
             'client_function' => 'CEO Company',
         ]);
 
         Testimonial::create([
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
-            'photo_path' => 'img/avatar/01.jpg',
+            'photo_path' => 'images/clients/yvphU695DcMgBJoH7Ok01B6Z1GrbCJkUmTTZShAr.jpeg',
             'client_name' => 'Michael Smith',
             'client_function' => 'CEO Company',
         ]);
 
         Testimonial::create([
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
-            'photo_path' => 'img/avatar/02.jpg',
+            'photo_path' => 'images/clients/lQXwywvovXlrp2Z8sVOeYmqyMOezn2c6ChnZ5chZ.jpeg',
             'client_name' => 'Michael Smith',
             'client_function' => 'CEO Company',
         ]);
 
         Testimonial::create([
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
-            'photo_path' => 'img/avatar/01.jpg',
+            'photo_path' => 'images/clients/yvphU695DcMgBJoH7Ok01B6Z1GrbCJkUmTTZShAr.jpeg',
             'client_name' => 'Michael Smith',
             'client_function' => 'CEO Company',
         ]);
 
         Testimonial::create([
             'comment' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
-            'photo_path' => 'img/avatar/02.jpg',
+            'photo_path' => 'images/clients/lQXwywvovXlrp2Z8sVOeYmqyMOezn2c6ChnZ5chZ.jpeg',
             'client_name' => 'Michael Smith',
             'client_function' => 'CEO Company',
         ]);

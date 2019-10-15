@@ -15,7 +15,7 @@
                             <p>{{$testimonial->comment}}</p>
                             <div class="client-info">
                                 <div class="avatar">
-                                    <img src="{{$testimonial->photo_path}}" alt="">
+                                    <img src="{{asset($testimonial->patch)}}" alt="">
                                 </div>
                                 <div class="client-name">
                                     <h2>{{$testimonial->client_name}}</h2>

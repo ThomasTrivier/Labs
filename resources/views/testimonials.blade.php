@@ -28,7 +28,7 @@
                   <tr>
                     <td>{{$testimonial->id}}</td>
                     <td class="avatar">
-                        <img src="/{{$testimonial->photo_path}}" alt="">
+                        <img src="{{asset($testimonial->patch)}}" alt="">
                     </td>
                     <td>{{$testimonial->comment}}</td>
                     <td>{{$testimonial->client_name}}</td>

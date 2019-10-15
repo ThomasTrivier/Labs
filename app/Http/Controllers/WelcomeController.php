@@ -23,8 +23,13 @@ class WelcomeController extends Controller
         $sectionIntel = SectionInfo::find(1);
         $testimonials = Testimonial::all();
         $services = Service::paginate(9);
-        $teams = Team::all();
+        $leader = Team::where('leader','Oui')->get();
+        $member1 = Team::where('leader','Non')->get()->random(1);
+        $member2 = Team::where('leader','Non')->get()->random(1);
+        while ($member1[0]->id === $member2[0]->id) {
+            $member2 = Team::where('leader','Non')->get()->random(1);
+        }
         $infos = Info::find(1);
-        return view('welcome', compact('nav','logo','images','servicesTop','about','sectionIntel','testimonials','services','teams','infos'));
+        return view('welcome', compact('nav','logo','images','servicesTop','about','sectionIntel','testimonials','services','leader','member1','member2','infos'));
     }
 }
