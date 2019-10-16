@@ -15,13 +15,13 @@ class AboutController extends Controller
     public function update(Request $req){
         $about = About::find(1);
 
-        $about->title_left = request()->input('title_left');
-        $about->span = request()->input('span');
-        $about->title_right = request()->input('title_right');
-        $about->text_left = request()->input('text_left');
-        $about->text_right = request()->input('text_right');
-        $about->button_text = request()->input('button_text');
-        $about->video_url = request()->input('video_url');
+        $about->title_left = request('title_left');
+        $about->span = request('span');
+        $about->title_right = request('title_right');
+        $about->text_left = request('text_left');
+        $about->text_right = request('text_right');
+        $about->button_text = request('button_text');
+        $about->video_url = request('video_url');
 
         if ($req->hasFile('preview')) {
             $file = $req->file("preview");

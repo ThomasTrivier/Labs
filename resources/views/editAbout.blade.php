@@ -9,7 +9,7 @@
 @section('content')
     <h1>Edit About</h1>
 
-    <form action="/admin/about/update" method="post">
+    <form action="/admin/about/update" method="post" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
@@ -45,7 +45,7 @@
 
         <div class="form-group">
           <label for=""></label>
-          <img src="{{asset($about->preview)}}" alt="">
+          <img src="{{asset($about->patch)}}" alt="">
           <input type="file" name="preview" class="form-control-file" placeholder="" aria-describedby="helpId">
         </div>
 

@@ -66,6 +66,12 @@ Route::resource('admin/services', 'ServicePanelController')->middleware(['auth',
 //Section Projets
 Route::resource('admin/projects', 'ProjectController')->middleware(['auth', 'verifyisadmin']);
 
+//Categories
+Route::resource('admin/categories', 'CategorieController')->middleware(['auth', 'verifyisadmin']);
+
+//Tags
+Route::resource('admin/tags', 'TagController')->middleware(['auth', 'verifyisadmin']);
+
 //Newsletter
 Route::post('newsletter/subscribe', 'NewsletterController@subscribe');
 

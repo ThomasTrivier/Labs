@@ -16,10 +16,12 @@ class ServicesController extends Controller
         $nav = Navbar::find(1);
         $logo = Image::find(1);
         $sectionIntel = SectionInfo::find(1);
-        // $servicesRandom = Service::all();
+        $random = Service::all()->take(-6);
+        $servicesRight = $random->take(-3);
+        $servicesLeft = $random->take(3);
         $services = Service::paginate(9);
         $projects = Project::all()->random(3);
         $infos = Info::find(1);
-        return view('services', compact('nav','logo','sectionIntel','services','projects','infos'));
+        return view('services', compact('nav','logo','sectionIntel','servicesLeft','servicesRight','services','projects','infos'));
     }
 }
