@@ -22,6 +22,8 @@
                   <th>Icon</th>
                   <th>Title</th>
                   <th>Description</th>
+                  <th></th>
+                  <th></th>
                 </tr>
                 @foreach ($services as $service)
                   <tr>

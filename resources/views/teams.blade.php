@@ -38,6 +38,8 @@
                   <th>Leader</th>
                   <th>Member Name</th>
                   <th>Member Function</th>
+                  <th></th>
+                  <th></th>
                 </tr>
                 @foreach ($teams as $team)
                   <tr>

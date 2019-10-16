@@ -23,6 +23,8 @@
                   <th>Comment</th>
                   <th>Client Name</th>
                   <th>Client Function</th>
+                  <th></th>
+                  <th></th>
                 </tr>
                 @foreach ($testimonials as $testimonial)
                   <tr>

@@ -17,7 +17,7 @@ Route::get('/services', 'ServicesController@index');
 
 Route::get('/blog', 'BlogController@index');
 
-Route::get('/blogPost', 'BlogPostController@index');
+Route::get('/blogPost/{id}', 'BlogPostController@index');
 
 Route::get('/contact', 'ContactController@index');
 

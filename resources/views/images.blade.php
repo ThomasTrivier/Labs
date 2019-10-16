@@ -38,6 +38,8 @@
                   <th>ID</th>
                   <th>Carousel Img</th>
                   <th>Placement</th>
+                  <th></th>
+                  <th></th>
                 </tr>
                 @foreach ($images as $image)
                   <tr>

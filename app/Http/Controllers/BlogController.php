@@ -7,6 +7,8 @@ use App\Navbar;
 use App\Image;
 use App\Categorie;
 use App\Tag;
+use App\Article;
+use App\User;
 
 class BlogController extends Controller
 {
@@ -14,7 +16,10 @@ class BlogController extends Controller
         $nav = Navbar::find(1);
         $logo = Image::find(1);
         $categories = Categorie::all()->random(6);
+        $categorieArticle = Categorie::all();
         $tags = Tag::all()->random(8);
-        return view('blog', compact('nav','logo','categories','tags'));
+        $articles = Article::paginate(3);
+        $users = User::all();
+        return view('blog', compact('nav','logo','categories','tags','articles','users','categorieArticle'));
     }
 }

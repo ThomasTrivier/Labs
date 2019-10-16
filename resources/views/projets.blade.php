@@ -22,6 +22,8 @@
                   <th>Photo</th>
                   <th>Title</th>
                   <th>Description</th>
+                  <th></th>
+                  <th></th>
                 </tr>
                 @foreach ($projects as $project)
                   <tr>
