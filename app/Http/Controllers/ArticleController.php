@@ -89,6 +89,7 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         $tags = ArticleTag::all();
+        ArticleTag::where('article_id',$article->id)->delete();
 
         if ($req->hasFile('article_photo')) {
             $file = $req->file("article_photo");
