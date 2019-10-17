@@ -10,7 +10,7 @@ use App\Tag;
 use App\Article;
 use App\User;
 use App\Comment;
-use App\TagLien;
+use App\ArticleTag;
 
 class BlogPostController extends Controller
 {
@@ -23,7 +23,7 @@ class BlogPostController extends Controller
         $categorieArticle = Categorie::where('id',$article->categorie)->get();
         $user = User::where('id',$article->author)->get();
         $comments = Comment::where('article',$article->id)->get();
-        $tagsArticle = TagLien::where('article',$article->id)->get();
+        $tagsArticle = ArticleTag::where('article_id',$article->id)->get();
         $tagsAll = Tag::all();
         return view('blog-post', compact('nav','logo','categories','tags','article','user','categorieArticle','comments','tagsArticle','tagsAll'));
     }

@@ -40,4 +40,14 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->role === 'admin';
     }
+
+    public function getPatchAttribute(){
+        $url = $this->photo_path;
+        
+        if (stristr($this->photo_path, 'http') === false ) {
+            $url = "storage/" . $this->photo_path;
+        }
+
+        return $url;
+    }
 }

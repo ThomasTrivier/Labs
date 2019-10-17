@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
+use App\Categorie;
+use App\Tag;
+use App\ArticleTag;
+use App\Comment;
+use App\User;
 
 class ArticleController extends Controller
 {
@@ -13,7 +19,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::all();
+        $users = User::all();
+        $categories = Categorie::all();
+        return view('articles', compact('articles','users','categories'));
     }
 
     /**
@@ -23,7 +32,9 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Categorie::all();
+        $tags = Tag::all();
+        return view('createArticle', compact('categories','tags'));
     }
 
     /**
@@ -32,20 +43,25 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
-    }
+        $article = new Article;
+        $tags = ArticleTag::all();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        if ($req->hasFile('article_photo')) {
+            $file = $req->file("article_photo");
+            $fileName = $file->store(env('ARTICLE_THUMB_DIR'));
+            $article->article_photo = $fileName;
+        }
+
+        $article->article_title = request('article_title');
+        $article->author = Auth::id();
+        $article->article_content = request('article_content');
+        $article->categorie = request('categorie');
+        //tags
+
+        $article->save();
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -56,7 +72,10 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        $categories = Categorie::all();
+        $tags = Tag::all();
+        return view('editArticle', compact('article','categories','tags'));
     }
 
     /**
@@ -66,9 +85,24 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $article = Article::find($id);
+        $tags = ArticleTag::all();
+
+        if ($req->hasFile('article_photo')) {
+            $file = $req->file("article_photo");
+            $fileName = $file->store(env('ARTICLE_THUMB_DIR'));
+            $article->article_photo = $fileName;
+        }
+
+        $article->article_title = request('article_title');
+        $article->article_content = request('article_content');
+        $article->categorie = request('categorie');
+        //tags
+
+        $article->save();
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -79,6 +113,15 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $photo = $article->article_photo;
+        $res = $article->delete();
+
+        if ($res) {
+            if ($photo && Storage::disk('public')->has("photo")) {
+                Storage::disk('public')->delete("photo");
+            }
+        }
+        return redirect()-> back();
     }
 }

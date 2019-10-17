@@ -9,7 +9,7 @@ use App\Categorie;
 use App\Tag;
 use App\Article;
 use App\User;
-use App\TagLien;
+use App\ArticleTag;
 use App\Comment;
 
 class BlogController extends Controller
@@ -20,9 +20,9 @@ class BlogController extends Controller
         $categories = Categorie::all()->random(6);
         $categorieArticle = Categorie::all();
         $tags = Tag::all()->random(8);
-        $articles = Article::paginate(3);
+        $articles = Article::where('published',true)->paginate(3);
         $users = User::all();
-        $tagsArticle = TagLien::all();
+        $tagsArticle = ArticleTag::all();
         $tagsAll = Tag::all();
         return view('blog', compact('nav','logo','categories','tags','articles','users','categorieArticle','tagsArticle','tagsAll'));
     }

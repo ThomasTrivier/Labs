@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTagLiensTable extends Migration
+class CreateArticleTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTagLiensTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_liens', function (Blueprint $table) {
+        Schema::create('article_tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('article')->unsigned();
-            $table->bigInteger('tag')->unsigned();
-            $table->foreign('article')->references('id')->on('articles')->onDelete('cascade');
-            $table->foreign('tag')->references('id')->on('tags')->onDelete('cascade');
+            $table->bigInteger('article_id')->unsigned();
+            $table->bigInteger('tag_id')->unsigned();
+            $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
             $table->timestamps();
         });
     }

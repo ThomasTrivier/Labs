@@ -24,15 +24,9 @@
                                 @foreach ($categorieArticle as $categorie)
                                     @if ($article->categorie === $categorie->id)
                                         <a href="">{{$categorie->category}}, 
-                                            @foreach ($tagsArticle as $item)
-                                                @foreach ($tagsAll as $tag)
-                                                    @if ($item->article === $article->id)
-                                                        @if ($item->tag === $tag->id)
-                                                            {{$tag->tag}} 
-                                                        @endif
-                                                    @endif
-                                                @endforeach
-                                            @endforeach</a>
+                                        @foreach ($article->tags()->get() as $tag)
+                                            {{$tag->tag}} 
+                                        @endforeach</a>
                                     @endif
                                 @endforeach
                                 <a href="">{{$article->commentaires()->count()}} Comments</a>

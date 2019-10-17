@@ -17,12 +17,8 @@
                         <div class="post-meta">
                             <a href="">{{$user[0]->name}}</a>
                             <a href="">{{$categorieArticle[0]->category}}, 
-                                @foreach ($tagsAll as $tag)
-                                    @foreach ($tagsArticle as $item)
-                                        @if ($tag->id === $item->tag)
-                                            {{$tag->tag}} 
-                                        @endif
-                                    @endforeach
+                                @foreach ($article->tags()->get() as $tag)
+                                    {{$tag->tag}} 
                                 @endforeach</a>
                             <a href="">{{$comments->count()}} Comments</a>
                         </div>
