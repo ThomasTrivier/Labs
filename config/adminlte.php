@@ -172,6 +172,11 @@ return [
             'icon' => 'fas fa-fw fa-check-square',
         ],
         [
+            'text' => 'Articles',
+            'url'  => 'admin/articles',
+            'icon' => 'fas fa-fw fa-paint-brush',
+        ],
+        [
             'text' => 'Categories',
             'url'  => 'admin/categories',
             'icon' => 'fas fa-fw fa-bookmark',

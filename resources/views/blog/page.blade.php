@@ -9,8 +9,8 @@
                         <div class="post-thumbnail">
                             <img src="{{$article->article_photo}}" alt="">
                             <div class="post-date">
-                                <h2>03</h2>
-                                <h3>Nov 2017</h3>
+                                <h2>{{$article->created_at->day}}</h2>
+                                <h3>{{$article->created_at->shortMonthName}} {{$article->created_at->year}}</h3>
                             </div>
                         </div>
                         <div class="post-content">
@@ -23,13 +23,22 @@
                                 @endforeach
                                 @foreach ($categorieArticle as $categorie)
                                     @if ($article->categorie === $categorie->id)
-                                        <a href="">{{$categorie->category}}, Inspiration</a>
+                                        <a href="">{{$categorie->category}}, 
+                                            @foreach ($tagsArticle as $item)
+                                                @foreach ($tagsAll as $tag)
+                                                    @if ($item->article === $article->id)
+                                                        @if ($item->tag === $tag->id)
+                                                            {{$tag->tag}} 
+                                                        @endif
+                                                    @endif
+                                                @endforeach
+                                            @endforeach</a>
                                     @endif
                                 @endforeach
-                                <a href="">2 Comments</a>
+                                <a href="">{{$article->commentaires()->count()}} Comments</a>
                             </div>
-                            <p>{{$article->article_content}}</p>
-                            <a href="/blogPost/{{$article->id}}" class="read-more">Read More</a>
+                            <p>{{substr($article->article_content,0,320)}}...</p>
+                            <a href="/blog-post/{{$article->id}}" class="read-more">Read More</a>
                         </div>
                     </div>
                 @endforeach

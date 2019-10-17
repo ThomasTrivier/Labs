@@ -5,7 +5,7 @@
 <!-- Footer section end -->
 
 <!--====== Javascripts & Jquery ======-->
-<script src="js/app.js"></script>
+<script src="/js/app.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
 
 </body>

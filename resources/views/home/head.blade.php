@@ -14,12 +14,7 @@
 
 	<!-- Stylesheets -->
 	{{-- <link rel="stylesheet" href="css/app.css"/> --}}
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="css/flaticon.css">
-	<link rel="stylesheet" href="css/magnific-popup.css"/>
-	<link rel="stylesheet" href="css/owl.carousel.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/css/app.css"/>
 
 </head>
 <body>

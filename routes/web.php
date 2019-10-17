@@ -17,7 +17,9 @@ Route::get('/services', 'ServicesController@index');
 
 Route::get('/blog', 'BlogController@index');
 
-Route::get('/blogPost/{id}', 'BlogPostController@index');
+Route::get('/blog-post/{id}', 'BlogPostController@index');
+
+Route::post('/blog-post/{id}/comment', 'BlogPostController@create');
 
 Route::get('/contact', 'ContactController@index');
 
@@ -65,6 +67,9 @@ Route::resource('admin/services', 'ServicePanelController')->middleware(['auth',
 
 //Section Projets
 Route::resource('admin/projects', 'ProjectController')->middleware(['auth', 'verifyisadmin']);
+
+//Articles
+Route::resource('admin/articles', 'ArticleController')->middleware(['auth', 'verifyisadmin']);
 
 //Categories
 Route::resource('admin/categories', 'CategorieController')->middleware(['auth', 'verifyisadmin']);

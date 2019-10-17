@@ -18,6 +18,8 @@ class UsersTableSeeder extends Seeder
             'role' => "admin",
             'email' => "ratchethomas@outlook.com",
             'password' => bcrypt("password"),
+            'photo_path' => '/img/avatar/03.jpg',
+            'description' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique."
         ]);
     }
 }
