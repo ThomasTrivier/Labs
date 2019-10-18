@@ -33,7 +33,7 @@
                   <tr>
                     <td>{{$article->id}}</td>
                     <td>
-                        <img src="{{$article->article_photo}}" alt="" height="150px" width="300px">
+                        <img src="{{asset($article->patch)}}" alt="" height="150px" width="300px">
                     </td>
                     <td>{{$article->article_title}}</td>
                     @foreach ($users as $user)
@@ -47,9 +47,11 @@
                         @endif
                     @endforeach
                     <td>
+                      <ul style="list-style: none;padding: 0;">
                         @foreach ($article->tags()->get() as $tag)
-                            {{$tag->tag}} 
+                            <li>{{$tag->tag}}</li> 
                         @endforeach
+                      </ul>
                     </td>
                     <td>{{$article->commentaires()->count()}}</td>
                     <td>{{($article->published == true) ? "Oui" : "Non"}}</td>

@@ -14,35 +14,35 @@ class TagsTableSeeder extends Seeder
     {
         Tag::truncate();
         Tag::create([
-            'tag' => 'tag 1'
+            'tag' => 'tag1'
         ]);
 
         Tag::create([
-            'tag' => 'tag 2'
+            'tag' => 'tag2'
         ]);
 
         Tag::create([
-            'tag' => 'tag 3'
+            'tag' => 'tag3'
         ]);
 
         Tag::create([
-            'tag' => 'tag 4'
+            'tag' => 'tag4'
         ]);
 
         Tag::create([
-            'tag' => 'tag 5'
+            'tag' => 'tag5'
         ]);
 
         Tag::create([
-            'tag' => 'tag 6'
+            'tag' => 'tag6'
         ]);
 
         Tag::create([
-            'tag' => 'tag 7'
+            'tag' => 'tag7'
         ]);
 
         Tag::create([
-            'tag' => 'tag 8'
+            'tag' => 'tag8'
         ]);
     }
 }

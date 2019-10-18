@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Article;
 use App\Categorie;
 use App\Tag;
@@ -46,7 +48,7 @@ class ArticleController extends Controller
     public function store(Request $req)
     {
         $article = new Article;
-        $tags = ArticleTag::all();
+        $tags = Tag::all();
 
         if ($req->hasFile('article_photo')) {
             $file = $req->file("article_photo");
@@ -58,9 +60,17 @@ class ArticleController extends Controller
         $article->author = Auth::id();
         $article->article_content = request('article_content');
         $article->categorie = request('categorie');
-        //tags
-
         $article->save();
+
+        foreach ($tags as $tag) {
+            if(request($tag->tag)){
+                $lien = new ArticleTag;
+                $lien->article_id = $article->id;
+                $lien->tag_id = $tag->id;
+                $lien->save();
+            }
+        }
+        
         return redirect()->route('articles.index');
     }
 
@@ -74,8 +84,10 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         $categories = Categorie::all();
-        $tags = Tag::all();
-        return view('editArticle', compact('article','categories','tags'));
+        $articleTags = $article->tags()->get();
+        $tab = Tag::all();
+        $tags = $tab->diff($articleTags);
+        return view('editArticle', compact('article','categories','tags','articleTags'));
     }
 
     /**
@@ -88,7 +100,7 @@ class ArticleController extends Controller
     public function update(Request $req, $id)
     {
         $article = Article::find($id);
-        $tags = ArticleTag::all();
+        $tags = Tag::all();
         ArticleTag::where('article_id',$article->id)->delete();
 
         if ($req->hasFile('article_photo')) {
@@ -100,7 +112,14 @@ class ArticleController extends Controller
         $article->article_title = request('article_title');
         $article->article_content = request('article_content');
         $article->categorie = request('categorie');
-        //tags
+        foreach ($tags as $tag) {
+            if(request($tag->tag)){
+               $lien= new ArticleTag;
+               $lien->article_id = $id;
+               $lien->tag_id = $tag->id;
+               $lien->save();
+            }
+        }
 
         $article->save();
         return redirect()->route('articles.index');

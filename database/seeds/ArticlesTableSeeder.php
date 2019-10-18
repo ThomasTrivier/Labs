@@ -14,7 +14,7 @@ class ArticlesTableSeeder extends Seeder
     {
         Article::truncate();
         Article::create([
-            'article_photo' => '/img/blog/blog-2.jpg',
+            'article_photo' => 'images/articles/Ddgohn9K8tK519NqdrH2p3aoPd28SC97V2suM42u.jpeg',
             'article_title' => 'Article 1',
             'article_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 
@@ -27,7 +27,7 @@ Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspen
         ]);
 
         Article::create([
-            'article_photo' => '/img/blog/blog-1.jpg',
+            'article_photo' => 'images/articles/JOjDJVJRc8PllTiA31pPcxa241xY1bewwcGUnWoP.jpeg',
             'article_title' => 'Article 2',
             'article_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 
@@ -40,7 +40,7 @@ Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspen
         ]);
 
         Article::create([
-            'article_photo' => '/img/blog/blog-3.jpg',
+            'article_photo' => 'images/articles/8mvtEwb720cDt228VU6Sla2OVVFfzvjQLsDJ4qZo.jpeg',
             'article_title' => 'Article 3',
             'article_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 
@@ -53,7 +53,7 @@ Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspen
         ]);
 
         Article::create([
-            'article_photo' => '/img/blog/blog-1.jpg',
+            'article_photo' => 'images/articles/JOjDJVJRc8PllTiA31pPcxa241xY1bewwcGUnWoP.jpeg',
             'article_title' => 'Article 4',
             'article_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 
@@ -66,7 +66,7 @@ Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspen
         ]);
 
         Article::create([
-            'article_photo' => '/img/blog/blog-2.jpg',
+            'article_photo' => 'images/articles/Ddgohn9K8tK519NqdrH2p3aoPd28SC97V2suM42u.jpeg',
             'article_title' => 'Article 5',
             'article_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 
@@ -79,7 +79,7 @@ Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspen
         ]);
 
         Article::create([
-            'article_photo' => '/img/blog/blog-3.jpg',
+            'article_photo' => 'images/articles/8mvtEwb720cDt228VU6Sla2OVVFfzvjQLsDJ4qZo.jpeg',
             'article_title' => 'Article 6',
             'article_content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.
 

@@ -6,7 +6,7 @@
                 <!-- Single Post -->
                 <div class="single-post">
                     <div class="post-thumbnail">
-                        <img src="{{$article->article_photo}}" alt="">
+                        <img src="{{asset($article->patch)}}" alt="">
                         <div class="post-date">
                             <h2>{{$article->created_at->day}}</h2>
                             <h3>{{$article->created_at->shortMonthName}} {{$article->created_at->year}}</h3>
@@ -79,9 +79,9 @@
             <div class="col-md-4 col-sm-5 sidebar">
                 <!-- Single widget -->
                 <div class="widget-item">
-                    <form action="#" class="search-form">
+                    <form action="/blog-search" class="search-form">
                         @csrf
-                        <input type="text" placeholder="Search">
+                        <input type="text" placeholder="Search" name="search">
                         <button class="search-btn"><i class="flaticon-026-search"></i></button>
                     </form>
                 </div>

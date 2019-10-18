@@ -3,43 +3,46 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-sm-7 blog-posts">
+                @if (count($searchs) == 0)
+                    <div class="alert alert-danger">
+                        <ul class="list-group">
+                            <li class="list-group-item">Nothing Found...</li>
+                        </ul>
+                    </div>
+                @endif
                 <!-- Post item -->
-                @foreach ($articles as $article)
+                @foreach ($searchs as $search)
                     <div class="post-item">
                         <div class="post-thumbnail">
-                            <img src="{{asset($article->patch)}}" alt="">
+                            <img src="{{asset($search->patch)}}" alt="">
                             <div class="post-date">
-                                <h2>{{$article->created_at->day}}</h2>
-                                <h3>{{$article->created_at->shortMonthName}} {{$article->created_at->year}}</h3>
+                                <h2>{{$search->created_at->day}}</h2>
+                                <h3>{{$search->created_at->shortMonthName}} {{$search->created_at->year}}</h3>
                             </div>
                         </div>
                         <div class="post-content">
-                            <h2 class="post-title">{{$article->article_title}}</h2>
+                            <h2 class="post-title">{{$search->article_title}}</h2>
                             <div class="post-meta">
                                 @foreach ($users as $user)
-                                    @if ($article->author === $user->id)
+                                    @if ($search->author === $user->id)
                                         <a href="">{{$user->name}}</a>
                                     @endif
                                 @endforeach
                                 @foreach ($categorieArticle as $categorie)
-                                    @if ($article->categorie === $categorie->id)
+                                    @if ($search->categorie === $categorie->id)
                                         <a href="">{{$categorie->category}}, 
-                                        @foreach ($article->tags()->get() as $tag)
+                                        @foreach ($search->tags()->get() as $tag)
                                             {{$tag->tag}} 
                                         @endforeach</a>
                                     @endif
                                 @endforeach
-                                <a href="">{{$article->commentaires()->count()}} Comments</a>
+                                <a href="">{{$search->commentaires()->count()}} Comments</a>
                             </div>
-                            <p>{{substr($article->article_content,0,320)}}...</p>
-                            <a href="/blog-post/{{$article->id}}" class="read-more">Read More</a>
+                            <p>{{substr($search->article_content,0,320)}}...</p>
+                            <a href="/blog-post/{{$search->id}}" class="read-more">Read More</a>
                         </div>
                     </div>
                 @endforeach
-                <!-- Pagination -->
-                <div class="page-pagination">
-                    {{$articles->links()}}
-                </div>
             </div>
             <!-- Sidebar area -->
             <div class="col-md-4 col-sm-5 sidebar">

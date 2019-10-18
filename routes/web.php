@@ -19,6 +19,8 @@ Route::get('/blog', 'BlogController@index');
 
 Route::get('/blog-post/{id}', 'BlogPostController@index');
 
+Route::get('/blog-search', 'BlogController@search');
+
 Route::post('/blog-post/{id}/comment', 'BlogPostController@create');
 
 Route::get('/contact', 'ContactController@index');
@@ -27,7 +29,7 @@ Auth::routes();
 
 Route::get('/home', function() {
     return view('home');
-})->name('home')->middleware(['auth', 'verifyisadmin']);
+})->name('home')->middleware('auth');
 
 //Navbar Links
 Route::get('admin/navbar/edit', 'NavbarController@edit')->middleware(['auth', 'verifyisadmin']);

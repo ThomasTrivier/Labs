@@ -40,7 +40,7 @@
             <label for="">Tags</label>
             @foreach ($tags as $tag)
                 <div>
-                    <input type="checkbox" name="tag" value="{{$tag->tag}}" autocomplete="off">
+                    <input type="checkbox" name="{{$tag->tag}}" value="{{$tag->tag}}" autocomplete="off">
                     <label for="">{{$tag->tag}}</label>
                 </div>
             @endforeach
