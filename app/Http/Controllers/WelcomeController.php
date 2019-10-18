@@ -26,8 +26,10 @@ class WelcomeController extends Controller
         $leader = Team::where('leader','Oui')->get();
         $member1 = Team::where('leader','Non')->get()->random(1);
         $member2 = Team::where('leader','Non')->get()->random(1);
-        while ($member1[0]->id === $member2[0]->id) {
-            $member2 = Team::where('leader','Non')->get()->random(1);
+        if (Team::all()->count() > 2) {
+            while ($member1[0]->id === $member2[0]->id) {
+                $member2 = Team::where('leader','Non')->get()->random(1);
+            }
         }
         $infos = Info::find(1);
         return view('welcome', compact('nav','logo','images','servicesTop','about','sectionIntel','testimonials','services','leader','member1','member2','infos'));
