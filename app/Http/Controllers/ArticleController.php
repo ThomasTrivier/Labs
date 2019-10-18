@@ -114,7 +114,7 @@ class ArticleController extends Controller
         $article->categorie = request('categorie');
         foreach ($tags as $tag) {
             if(request($tag->tag)){
-               $lien= new ArticleTag;
+               $lien = new ArticleTag;
                $lien->article_id = $id;
                $lien->tag_id = $tag->id;
                $lien->save();

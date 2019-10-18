@@ -31,6 +31,9 @@ Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
 
+//Users
+Route::resource('admin/users', 'UserController')->middleware(['auth', 'verifyisadmin']);
+
 //Navbar Links
 Route::get('admin/navbar/edit', 'NavbarController@edit')->middleware(['auth', 'verifyisadmin']);
 
