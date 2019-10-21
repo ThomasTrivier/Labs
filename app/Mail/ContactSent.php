@@ -29,7 +29,6 @@ class ContactSent extends Mailable
      */
     public function build()
     {
-        return $this->from($contact->email)
-                    ->markdown('contactSent');
+        return $this->markdown('contactSent');
     }
 }

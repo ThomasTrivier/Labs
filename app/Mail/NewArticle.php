@@ -29,7 +29,6 @@ class NewArticle extends Mailable
      */
     public function build()
     {
-        return $this->from('test@example.com')
-                    ->markdown('newArticle');
+        return $this->markdown('newArticle');
     }
 }

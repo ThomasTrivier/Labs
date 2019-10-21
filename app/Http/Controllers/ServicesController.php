@@ -16,7 +16,7 @@ class ServicesController extends Controller
         $nav = Navbar::find(1);
         $logo = Image::find(1);
         $sectionIntel = SectionInfo::find(1);
-        $random = Service::all()->take(-6);
+        $random = Service::all()->take(-6)->reverse();
         $servicesRight = $random->take(-3);
         $servicesLeft = $random->take(3);
         $services = Service::paginate(9);

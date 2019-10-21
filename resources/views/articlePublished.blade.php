@@ -1,7 +1,8 @@
 @component('mail::message')
-# Article created
+# New Article Published
 
-A new article has been created by {{$user->name}}.  
+A new article has been published. 
+Article Name : {{$article->article_title}}
 
 @component('mail::button', ['url' => '', 'color' => 'primary'])
 View Article

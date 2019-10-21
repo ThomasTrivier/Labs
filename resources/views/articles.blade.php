@@ -13,6 +13,7 @@
             <div class="box-header">
               <h3 class="box-title">Articles Table</h3>
               <a href="{{route('articles.create')}}" class="btn btn-success">CREATE</a>
+              <a href="/publish" class="btn btn-primary">PUBLISH</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">

@@ -16,8 +16,8 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name' => "Administrator",
             'role' => "admin",
-            'email' => "test@example.com",
-            'password' => bcrypt("password"),
+            'email' => "admin@admin.com",
+            'password' => bcrypt("admin"),
             'photo_path' => 'images/users/OlhTE5G7M4mbN8jxeafxk7SlqkZOghtebhcHND8l.jpeg',
             'description' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique."
         ]);
@@ -25,16 +25,16 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name' => "John Doe",
             'role' => "editor",
-            'email' => "test@test.be",
-            'password' => bcrypt("writer"),
+            'email' => "editor@editor.com",
+            'password' => bcrypt("editor"),
             'photo_path' => 'images/users/fDqWnDeJhKbuyXwh8KAlc8U6viMEK4ZcZsg44p9k.jpeg',
             'description' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique."
         ]);
 
         User::create([
             'name' => "Marie Jane",
-            'email' => "yes@yolo.com",
-            'password' => bcrypt("visitor"),
+            'email' => "guest@guest.com",
+            'password' => bcrypt("guest"),
             'photo_path' => 'images/users/R9HhtkZbiX7qcOfcE2P8GsYaKY7s0BNG4wmNCmtB.jpeg',
             'description' => "Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique."
         ]);

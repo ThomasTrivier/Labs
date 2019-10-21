@@ -76,6 +76,10 @@ Route::resource('admin/projects', 'ProjectController')->middleware(['auth', 'ver
 //Articles
 Route::resource('admin/articles', 'ArticleController')->middleware(['auth', 'verifyisadmin']);
 
+Route::get('/publish', 'PublishController@index')->middleware(['auth', 'verifyisadmin']);
+
+Route::patch('/published', 'PublishController@publish')->middleware(['auth', 'verifyisadmin']);
+
 //Categories
 Route::resource('admin/categories', 'CategorieController')->middleware(['auth', 'verifyisadmin']);
 

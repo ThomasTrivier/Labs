@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\ContactSent;
+use Illuminate\Support\Facades\Mail;
 use App\Contact;
 
 class FormController extends Controller
 {
-    public function create(){
+    public function create(Request $req){
         $contact = new Contact();
 
         request()->validate([
@@ -25,6 +27,7 @@ class FormController extends Controller
         $contact->message = request()->input("message");
 
         $contact->save();
+        Mail::to(request('email'))->send(new ContactSent($contact));
 
         return redirect()->back();
     }

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\ArticleReady;
+use App\Mail\NewArticle;
+use Illuminate\Support\Facades\Mail;
 use App\Article;
 use App\Categorie;
 use App\Tag;
@@ -49,6 +52,7 @@ class ArticleController extends Controller
     {
         $article = new Article;
         $tags = Tag::all();
+        $admin = User::find(1);
 
         if ($req->hasFile('article_photo')) {
             $file = $req->file("article_photo");
@@ -70,6 +74,8 @@ class ArticleController extends Controller
                 $lien->save();
             }
         }
+
+        Mail::to($admin->email)->send(new NewArticle($article));
         
         return redirect()->route('articles.index');
     }
@@ -101,6 +107,7 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         $tags = Tag::all();
+        $user = User::find(1);
         ArticleTag::where('article_id',$article->id)->delete();
 
         if ($req->hasFile('article_photo')) {
@@ -112,6 +119,8 @@ class ArticleController extends Controller
         $article->article_title = request('article_title');
         $article->article_content = request('article_content');
         $article->categorie = request('categorie');
+        $article->published = false;
+        $article->save();
         foreach ($tags as $tag) {
             if(request($tag->tag)){
                $lien = new ArticleTag;
@@ -121,7 +130,8 @@ class ArticleController extends Controller
             }
         }
 
-        $article->save();
+        Mail::to($user->email)->send(new ArticleReady($article, $user));
+
         return redirect()->route('articles.index');
     }
 

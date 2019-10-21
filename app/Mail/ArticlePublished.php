@@ -3,26 +3,23 @@
 namespace App\Mail;
 
 use App\Article;
-use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ArticleReady extends Mailable
+class ArticlePublished extends Mailable
 {
     use Queueable, SerializesModels;
     public $article;
-    public $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Article $article, User $user)
+    public function __construct(Article $article)
     {
         $this->article = $article;
-        $this->user = $user;
     }
 
     /**
@@ -32,6 +29,6 @@ class ArticleReady extends Mailable
      */
     public function build()
     {
-        return $this->markdown('articleReady');
+        return $this->markdown('articlePublished');
     }
 }
