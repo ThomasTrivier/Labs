@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class UserController extends Controller
@@ -15,7 +16,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users', compact('users'));
+        $auth = User::find(Auth::id());
+        return view('users', compact('users','auth'));
     }
 
     /**
@@ -26,8 +28,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $auth = User::find(Auth::id());
         $user = User::find($id);
-        return view('editUser', compact('user'));
+
+        if ($auth->role == 'admin' || $auth->id == $user->id) {
+            return view('editUser', compact('user','auth'));
+        } else if ($auth->id !== $user->id) {
+            return back();
+        }
     }
 
     /**

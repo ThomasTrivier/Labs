@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class VerifyIsAdmin
+class Editor
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class VerifyIsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::user()->isAdmin()) {
+        if (!Auth::user()->isEditor()) {
             return redirect('/home');
         }
 

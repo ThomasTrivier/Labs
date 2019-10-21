@@ -26,25 +26,29 @@
                   <th></th>
                 </tr>
                 @foreach ($users as $user)
-                  <tr>
-                    <td>{{$user->id}}</td>
-                    <td>
-                        <img src="{{asset($user->patch)}}" alt="" height="100px" width="100px">
-                    </td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->role}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>
-                      <a href="{{route('users.edit',$user->id)}}" class="btn btn-primary">UPDATE</a>
-                    </td>
-                    <td>
-                      <form action="{{route('users.destroy',$user->id)}}" method="POST">
-                          @csrf
-                          @method('DELETE')
-                          <button class="btn btn-danger" type="submit">DELETE</button>
-                      </form>
-                    </td>
-                  </tr>
+                  @if ($auth->id == $user->id || $auth->role == 'admin')
+                    <tr>
+                      <td>{{$user->id}}</td>
+                      <td>
+                          <img src="{{asset($user->patch)}}" alt="" height="100px" width="100px">
+                      </td>
+                      <td>{{$user->name}}</td>
+                      <td>{{$user->role}}</td>
+                      <td>{{$user->email}}</td>
+                      <td>
+                        <a href="{{route('users.edit',$user->id)}}" class="btn btn-primary">UPDATE</a>
+                      </td>
+                      <td>
+                        @if ($auth->role == 'admin' && $auth->id != $user->id)
+                          <form action="{{route('users.destroy',$user->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">DELETE</button>
+                          </form>
+                        @endif
+                      </td>
+                    </tr>
+                  @endif
                 @endforeach
               </tbody></table>
             </div>

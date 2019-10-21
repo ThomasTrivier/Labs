@@ -27,7 +27,8 @@ class ArticleController extends Controller
         $articles = Article::all();
         $users = User::all();
         $categories = Categorie::all();
-        return view('articles', compact('articles','users','categories'));
+        $auth = User::find(Auth::id());
+        return view('articles', compact('articles','users','categories','auth'));
     }
 
     /**

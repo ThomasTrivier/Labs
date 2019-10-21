@@ -24,14 +24,16 @@
           <input type="text" name="name" value="{{$user->name}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
-        <div class="form-group">
-          <label for="">Role</label>
-          <select name="role">
-              <option value="guest" {{($user->role == "guest") ? 'selected' : ''}}>Guest</option>
-              <option value="editor" {{($user->role == "editor") ? 'selected' : ''}}>Editor</option>
-              <option value="admin" {{($user->role == "admin") ? 'selected' : ''}}>Admin</option>
-          </select>
-        </div>
+        @if ($auth->role == 'admin')
+          <div class="form-group">
+            <label for="">Role</label>
+            <select name="role">
+                <option value="guest" {{($user->role == "guest") ? 'selected' : ''}}>Guest</option>
+                <option value="editor" {{($user->role == "editor") ? 'selected' : ''}}>Editor</option>
+                <option value="admin" {{($user->role == "admin") ? 'selected' : ''}}>Admin</option>
+            </select>
+          </div>
+        @endif
 
         <div class="form-group">
           <label for="">Description</label>

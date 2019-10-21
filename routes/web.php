@@ -32,7 +32,7 @@ Route::get('/home', function() {
 })->name('home')->middleware('auth');
 
 //Users
-Route::resource('admin/users', 'UserController')->middleware(['auth', 'verifyisadmin']);
+Route::resource('admin/users', 'UserController')->middleware('auth');
 
 //Navbar Links
 Route::get('admin/navbar/edit', 'NavbarController@edit')->middleware(['auth', 'verifyisadmin']);
@@ -74,7 +74,7 @@ Route::resource('admin/services', 'ServicePanelController')->middleware(['auth',
 Route::resource('admin/projects', 'ProjectController')->middleware(['auth', 'verifyisadmin']);
 
 //Articles
-Route::resource('admin/articles', 'ArticleController')->middleware(['auth', 'verifyisadmin']);
+Route::resource('admin/articles', 'ArticleController')->middleware(['auth', 'editor']);
 
 Route::get('/publish', 'PublishController@index')->middleware(['auth', 'verifyisadmin']);
 
