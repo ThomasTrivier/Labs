@@ -21,6 +21,10 @@ Route::get('/blog-post/{id}', 'BlogPostController@index');
 
 Route::get('/blog-search', 'BlogController@search');
 
+Route::get('/blog-categorie/{id}', 'BlogController@searchCategorie');
+
+Route::get('/blog-tag/{id}', 'BlogController@searchTag');
+
 Route::post('/blog-post/{id}/comment', 'BlogPostController@create');
 
 Route::get('/contact', 'ContactController@index');

@@ -46,4 +46,39 @@ class BlogController extends Controller
         }
         return view('search', compact('nav','logo','categories','tags','searchs','users','categorieArticle','tagsArticle','tagsAll'));
     }
+
+    public function searchCategorie($id){
+        $nav = Navbar::find(1);
+        $logo = Image::find(1);
+        $categories = Categorie::all()->random(6);
+        $categorieArticle = Categorie::all();
+        $tags = Tag::all()->random(8);
+        $searchs = Article::where('published',true)->where('categorie',$id)->get();
+        $users = User::all();
+        $tagsArticle = ArticleTag::all();
+        $tagsAll = Tag::all();
+        return view('searchCategorie', compact('nav','logo','categories','tags','users','searchs','categorieArticle','tagsArticle','tagsAll'));
+    }
+
+    public function searchTag($id){
+        $nav = Navbar::find(1);
+        $logo = Image::find(1);
+        $categories = Categorie::all()->random(6);
+        $categorieArticle = Categorie::all();
+        $tags = Tag::all()->random(8);
+        $articles = Article::where('published',true)->get();
+        $users = User::all();
+        $tagsArticle = ArticleTag::all();
+        $tagsAll = Tag::all();
+        $searchs = [];
+        foreach ($articles as $article) {
+            $randoms = $article->tags()->get();
+            foreach ($randoms as $random) {
+                if ($random->id == $id) {
+                    array_push($searchs,$article);
+                }
+            }
+        }
+        return view('searchTag', compact('nav','logo','categories','tags','searchs','users','categorieArticle','tagsArticle','tagsAll'));
+    }
 }

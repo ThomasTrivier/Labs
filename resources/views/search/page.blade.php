@@ -79,7 +79,7 @@
                     <h2 class="widget-title">Tags</h2>
                     <ul class="tag">
                         @foreach ($tags as $item)
-                            <li><a href="">{{$item->tag}}</a></li>
+                            <li><a href="/blog-tag/{{$item->id}}">{{$item->tag}}</a></li>
                         @endforeach
                     </ul>
                 </div>

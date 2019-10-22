@@ -57,7 +57,7 @@
 
         <div class="form-group">
           <label for="">New Password</label>
-          <input type="text" name="password" class="form-control" placeholder="Password" aria-describedby="helpId">
+          <input type="password" name="password" class="form-control" placeholder="Password" aria-describedby="helpId">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
