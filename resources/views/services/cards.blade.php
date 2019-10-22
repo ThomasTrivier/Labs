@@ -6,7 +6,7 @@
                 <div class="col-md-4 col-sm-6">
                     <div class="sv-card">
                         <div class="card-img">
-                            <img src="{{asset($project->patch)}}" alt="">
+                            <img src="{{asset($project->patch)}}" alt="" height="271px" width="362px">
                         </div>
                         <div class="card-text">
                             <h2>{{$project->title}}</h2>

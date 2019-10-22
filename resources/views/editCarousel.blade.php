@@ -15,6 +15,11 @@
 
         <div class="form-group">
           <label for="">Carousel Img</label>
+          @if ($errors->has('media_path'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the photo<span/>
+            </div>
+          @endif
           <div>
               <img src="/{{$image->media_path}}" alt="" height="250px" width="500px">
           </div>

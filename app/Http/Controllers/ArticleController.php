@@ -55,6 +55,12 @@ class ArticleController extends Controller
         $tags = Tag::all();
         $admin = User::find(1);
 
+        request()->validate([
+            'article_photo'   => 'required|file|image',
+            'article_title'   => 'required|string',
+            'article_content' => 'required|string',
+        ]);
+
         if ($req->hasFile('article_photo')) {
             $file = $req->file("article_photo");
             $fileName = $file->store(env('ARTICLE_THUMB_DIR'));
@@ -109,6 +115,12 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $tags = Tag::all();
         $user = User::find(1);
+
+        request()->validate([
+            'article_title'   => 'required|string',
+            'article_content' => 'required|string',
+        ]);
+
         ArticleTag::where('article_id',$article->id)->delete();
 
         if ($req->hasFile('article_photo')) {

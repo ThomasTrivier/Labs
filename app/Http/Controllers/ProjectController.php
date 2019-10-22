@@ -39,6 +39,12 @@ class ProjectController extends Controller
     {
         $project = new Project;
 
+        request()->validate([
+            'photo_path'  => 'required|file|image',
+            'title'       => 'required|string',
+            'description' => 'required|string',
+        ]);
+
         if ($req->hasFile('photo_path')) {
             $file = $req->file("photo_path");
             $fileName = $file->store(env('PROJECT_THUMB_DIR'));
@@ -74,6 +80,11 @@ class ProjectController extends Controller
     public function update(Request $req, $id)
     {
         $project = Project::find($id);
+
+        request()->validate([
+            'title'       => 'required|string',
+            'description' => 'required|string',
+        ]);
 
         if ($req->hasFile('photo_path')) {
             $file = $req->file("photo_path");

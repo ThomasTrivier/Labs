@@ -14,22 +14,42 @@
 
         <div class="form-group">
           <label for="">Photo</label>
-          <input type="file" name="photo_path" class="form-control-file" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('photo_path'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the photo<span/>
+            </div>
+          @endif
+          <input type="file" required name="photo_path" class="form-control-file" placeholder="" aria-describedby="helpId">
         </div>
 
         <div class="form-group">
           <label for="">Comment</label>
-          <input type="text" name="comment" class="form-control" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('comment'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the comment<span/>
+            </div>
+          @endif
+          <textarea name="comment" required class="form-control" cols="30" rows="3">{{old('comment')}}</textarea>
         </div>
 
         <div class="form-group">
           <label for="">Client Name</label>
-          <input type="text" name="client_name" class="form-control" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('client_name'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the name<span/>
+            </div>
+          @endif
+          <input type="text" required name="client_name" value="{{old('client_name')}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
         <div class="form-group">
           <label for="">Client Function</label>
-          <input type="text" name="client_function" class="form-control" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('client_function'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the function<span/>
+            </div>
+          @endif
+          <input type="text" required name="client_function" value="{{old('client_function')}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

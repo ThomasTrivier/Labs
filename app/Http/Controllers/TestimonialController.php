@@ -39,6 +39,13 @@ class TestimonialController extends Controller
     {
         $testimonial = new Testimonial;
 
+        request()->validate([
+            'photo_path'      => 'required|file|image',
+            'comment'         => 'required|string',
+            'client_name'     => 'required|string',
+            'client_function' => 'required|string',
+        ]);
+
         if ($req->hasFile('photo_path')) {
             $file = $req->file("photo_path");
             $fileName = $file->store(env('CLIENT_PHOTO_DIR'));
@@ -75,6 +82,12 @@ class TestimonialController extends Controller
     public function update(Request $req, $id)
     {
         $testimonial = Testimonial::find($id);
+
+        request()->validate([
+            'comment'         => 'required|string',
+            'client_name'     => 'required|string',
+            'client_function' => 'required|string',
+        ]);
 
         if ($req->hasFile('photo_path')) {
             $file = $req->file("photo_path");

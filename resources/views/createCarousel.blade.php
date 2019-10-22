@@ -14,7 +14,12 @@
 
         <div class="form-group">
           <label for="">Carousel Img</label>
-          <input type="file" name="media_path" class="form-control-file" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('media_path'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the photo<span/>
+            </div>
+          @endif
+          <input type="file" required name="media_path" class="form-control-file" placeholder="" aria-describedby="helpId">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

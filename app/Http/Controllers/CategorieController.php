@@ -38,6 +38,10 @@ class CategorieController extends Controller
     {
         $categorie = new Categorie;
 
+        request()->validate([
+            'category' => 'required|string',
+        ]);
+
         $categorie->category = request('category');
         $categorie->save();
 
@@ -63,9 +67,13 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
         $categorie = Categorie::find($id);
+
+        request()->validate([
+            'category' => 'required|string',
+        ]);
 
         $categorie->category = request('category');
         $categorie->save();

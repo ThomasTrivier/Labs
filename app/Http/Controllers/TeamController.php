@@ -54,6 +54,12 @@ class TeamController extends Controller
     {
         $member = new Team;
 
+        request()->validate([
+            'photo_path'      => 'required|file|image',
+            'member_name'     => 'required|string',
+            'member_function' => 'required|string',
+        ]);
+
         if ($req->hasFile('photo_path')) {
             $file = $req->file("photo_path");
             $fileName = $file->store(env('TEAM_PHOTO_DIR'));
@@ -89,6 +95,11 @@ class TeamController extends Controller
     public function update(Request $req, $id)
     {
         $member = Team::find($id);
+
+        request()->validate([
+            'member_name'     => 'required|string',
+            'member_function' => 'required|string',
+        ]);
 
         if ($req->hasFile('photo_path')) {
             $file = $req->file("photo_path");

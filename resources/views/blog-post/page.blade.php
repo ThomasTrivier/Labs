@@ -27,7 +27,7 @@
                     <!-- Post Author -->
                     <div class="author">
                         <div class="avatar">
-                            <img src="{{$user[0]->photo_path}}" alt="">
+                            <img src="{{asset($user[0]->patch)}}" alt="">
                         </div>
                         <div class="author-info">
                             <h2>{{$user[0]->name}}, <span>Author</span></h2>
@@ -54,19 +54,28 @@
                     <!-- Commert Form -->
                     <div class="row">
                         <div class="col-md-9 comment-from">
-                            <h2>Leave a comment</h2>
+                            <h2 id="comment-form">Leave a comment</h2>
+                            @if ($errors->any())
+                                <div class=" row alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li style="margin-left: 10px;">{{$error}}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form class="form-class" method="POST" action="/blog-post/{{$article->id}}/comment">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <input type="text" name="name" placeholder="Your name">
+                                        <input type="text" required name="name" placeholder="Your name" value="{{old('name')}}">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" name="email" placeholder="Your email">
+                                        <input type="text" required name="email" placeholder="Your email" value="{{old('email')}}">
                                     </div>
                                     <div class="col-sm-12">
-                                        <input type="text" name="subject" placeholder="Subject">
-                                        <textarea name="message" placeholder="Message"></textarea>
+                                        <input type="text" required name="subject" placeholder="Subject" value="{{old('subject')}}">
+                                        <textarea name="message" required placeholder="Message">{{old('message')}}</textarea>
                                         <button class="site-btn" type="submit">send</button>
                                     </div>
                                 </div>

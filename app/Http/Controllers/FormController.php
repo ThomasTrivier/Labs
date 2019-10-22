@@ -4,22 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\ContactSent;
+use App\Http\Requests\StoreContact;
 use Illuminate\Support\Facades\Mail;
 use App\Contact;
+use Validator;
 
 class FormController extends Controller
 {
     public function create(Request $req){
         $contact = new Contact();
 
-        request()->validate([
-            'name' => ['required', 'min:3'],
-            'email' => ['required', 'min:10'],
-            'subject' => ['required', 'min:3'],
-            'message' => ['required', 'min:10'],
+        $validator = Validator::make($req->all(), [
+            'name'    => 'required|string',
+            'email'   => 'required|email:rfc,dns',
+            'subject' => 'required|string',
+            'message' => 'required|string',
         ]);
 
-        //REDIRIGER VERS LE FORM EN CAS D'ERREUR ?
+        if ($validator->fails()) {
+            return redirect('/#con_form')->withErrors($validator)->withInput();
+        }
 
         $contact->name = request()->input("name");
         $contact->email = request()->input("email");

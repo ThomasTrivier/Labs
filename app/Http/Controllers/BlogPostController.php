@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 use App\Navbar;
 use App\Image;
 use App\Categorie;
@@ -28,9 +29,20 @@ class BlogPostController extends Controller
         return view('blog-post', compact('nav','logo','categories','tags','article','user','categorieArticle','comments','tagsArticle','tagsAll'));
     }
 
-    public function create($id){
+    public function create(Request $req, $id){
         $article = Article::find($id);
         $comment = new Comment;
+
+        $validator = Validator::make($req->all(), [
+            'name'    => 'required|string',
+            'email'   => 'required|email:rfc,dns',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/blog-post/'.$id.'/#comment-form')->withErrors($validator)->withInput();
+        }
 
         $comment->user_name = request('name');
         $comment->comment = request('message');

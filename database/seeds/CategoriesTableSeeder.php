@@ -14,27 +14,27 @@ class CategoriesTableSeeder extends Seeder
     {
         Categorie::truncate();
         Categorie::create([
-            'category' => 'Category 1'
+            'category' => 'Category1'
         ]);
 
         Categorie::create([
-            'category' => 'Category 2'
+            'category' => 'Category2'
         ]);
 
         Categorie::create([
-            'category' => 'Category 3'
+            'category' => 'Category3'
         ]);
 
         Categorie::create([
-            'category' => 'Category 4'
+            'category' => 'Category4'
         ]);
 
         Categorie::create([
-            'category' => 'Category 5'
+            'category' => 'Category5'
         ]);
 
         Categorie::create([
-            'category' => 'Category 6'
+            'category' => 'Category6'
         ]);
     }
 }

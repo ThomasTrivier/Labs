@@ -12,8 +12,15 @@ class NavbarController extends Controller
         return view('editNavbar', compact('nav'));
     }
 
-    public function update(){
+    public function update(Request $req){
         $nav = Navbar::find(1);
+
+        request()->validate([
+            'nav1' => 'required|string',
+            'nav2' => 'required|string',
+            'nav3' => 'required|string',
+            'nav4' => 'required|string',
+        ]);
 
         $nav->nav1 = request()->input('nav1');
         $nav->nav2 = request()->input('nav2');

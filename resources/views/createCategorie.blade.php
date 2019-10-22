@@ -14,7 +14,12 @@
 
         <div class="form-group">
           <label for="">Category Name</label>
-          <input type="text" name="category" class="form-control" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('category'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the name<span/>
+            </div>
+          @endif
+          <input type="text" required name="category" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

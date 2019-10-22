@@ -14,17 +14,32 @@
 
         <div class="form-group">
           <label for=""></label>
-          <input type="file" name="article_photo" class="form-control-file" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('article_photo'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the photo<span/>
+            </div>
+          @endif
+          <input type="file" name="article_photo" required class="form-control-file" placeholder="" aria-describedby="helpId">
         </div>
 
         <div class="form-group">
           <label for="">Title</label>
-          <input type="text" name="article_title" class="form-control" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('article_title'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the title<span/>
+            </div>
+          @endif
+          <input type="text" name="article_title" required value="{{old('article_title')}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
         <div class="form-group">
           <label for="">Content</label>
-          <textarea name="article_content" class="form-control" cols="30" rows="10"></textarea>
+          @if ($errors->has('article_photo'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the content<span/>
+            </div>
+          @endif
+          <textarea name="article_content" required class="form-control" cols="30" rows="10">{{old('article_content')}}</textarea>
         </div>
 
         <div class="form-group">

@@ -21,7 +21,12 @@
 
         <div class="form-group">
           <label for="">User Name</label>
-          <input type="text" name="name" value="{{$user->name}}" class="form-control" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('name'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the name<span/>
+            </div>
+          @endif
+          <input type="text" required name="name" value="{{$user->name}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
         @if ($auth->role == 'admin')
@@ -42,7 +47,12 @@
 
         <div class="form-group">
           <label for="">User Email</label>
-          <input type="text" name="email" value="{{$user->email}}" class="form-control" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('email'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the email<span/>
+            </div>
+          @endif
+          <input type="text" required name="email" value="{{$user->email}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
         <div class="form-group">

@@ -15,6 +15,16 @@ class InfosController extends Controller
     public function update(){
         $infos = Info::find(1);
 
+        request()->validate([
+            'title'         => 'required|string',
+            'description'   => 'required|string',
+            'building_name' => 'required|string',
+            'adress_part_1' => 'required|string',
+            'adress_part_2' => 'required|string',
+            'email'         => 'required|email:rfc,dns',
+            'tel'           => 'required|string',
+        ]);
+
         $infos->title = request()->input('title');
         $infos->description = request()->input('description');
         $infos->building_name = request()->input('building_name');

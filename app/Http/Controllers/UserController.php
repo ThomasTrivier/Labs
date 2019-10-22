@@ -49,6 +49,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
+        request()->validate([
+            'name'  => 'required|string',
+            'email' => 'required|email:rfc,dns',
+        ]);
+
         if ($req->hasFile('photo_path')) {
             $file = $req->file("photo_path");
             $fileName = $file->store(env('USER_PHOTO_DIR'));

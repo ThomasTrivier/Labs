@@ -34,6 +34,10 @@ class ImageController extends Controller
     public function store(Request $req){
         $image = new Image;
 
+        request()->validate([
+            'media_path' => 'required|file|image',
+        ]);
+
         if ($req->hasFile('media_path')) {
             $file = $req->file("media_path");
             $fileName = $file->store(env('IMG_CAROUSEL_DIR'));
@@ -53,6 +57,10 @@ class ImageController extends Controller
 
     public function update(Request $req, $id){
         $image = Image::find($id);
+
+        // request()->validate([
+        //     'media_path' => 'image',
+        // ]);
 
         if ($req->hasFile('media_path')) {
             $file = $req->file("media_path");

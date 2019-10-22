@@ -38,6 +38,12 @@ class ServicePanelController extends Controller
     {
         $service = new Service;
 
+        request()->validate([
+            'service_icon'  => 'required',
+            'service_title' => 'required|string',
+            'description'   => 'required|string',
+        ]);
+
         $service->service_icon = request('service_icon');
         $service->service_title = request('service_title');
         $service->description = request('description');
@@ -68,6 +74,12 @@ class ServicePanelController extends Controller
     public function update($id)
     {
         $service = Service::find($id);
+
+        request()->validate([
+            'service_icon'  => 'required',
+            'service_title' => 'required|string',
+            'description'   => 'required|string',
+        ]);
 
         $service->service_icon = request('service_icon');
         $service->service_title = request('service_title');

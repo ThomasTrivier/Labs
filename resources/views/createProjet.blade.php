@@ -14,17 +14,32 @@
 
         <div class="form-group">
           <label for="">Photo</label>
-          <input type="file" name="photo_path" class="form-control-file" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('photo_path'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the photo<span/>
+            </div>
+          @endif
+          <input type="file" required name="photo_path" class="form-control-file" placeholder="" aria-describedby="helpId">
         </div>
 
         <div class="form-group">
           <label for="">Title</label>
-          <input type="text" name="title" class="form-control" placeholder="" aria-describedby="helpId">
+          @if ($errors->has('title'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the title<span/>
+            </div>
+          @endif
+          <input type="text" required name="title" value="{{old('title')}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 
         <div class="form-group">
           <label for="">Description</label>
-          <textarea class="form-control" name="description" id="" cols="30" rows="3"></textarea>
+          @if ($errors->has('description'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the text<span/>
+            </div>
+          @endif
+          <textarea class="form-control" required name="description" cols="30" rows="3">{{old('description')}}</textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

@@ -15,6 +15,11 @@
 
         <div class="form-group">
           <label for="">Tag Name</label>
+          @if ($errors->has('tag'))
+            <div class=" row alert alert-danger">
+              <span style="margin-left: 10px;">There is a problem with the name<span/>
+            </div>
+          @endif
           <input type="text" name="tag" value="{{$tag->tag}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 

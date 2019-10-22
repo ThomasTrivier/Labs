@@ -87,7 +87,7 @@ Route::resource('admin/categories', 'CategorieController')->middleware(['auth', 
 Route::resource('admin/tags', 'TagController')->middleware(['auth', 'verifyisadmin']);
 
 //Newsletter
-Route::post('newsletter/subscribe', 'NewsletterController@subscribe');
+Route::post('/newsletter/subscribe', 'NewsletterController@subscribe');
 
 //Contact Form
 Route::post('/form', 'FormController@create');

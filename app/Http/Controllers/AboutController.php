@@ -15,6 +15,17 @@ class AboutController extends Controller
     public function update(Request $req){
         $about = About::find(1);
 
+        request()->validate([
+            'title_left'  => 'required|string',
+            'span'        => 'required|string',
+            'title_right' => 'required|string',
+            'text_left'   => 'required|string',
+            'text_right'  => 'required|string',
+            'button_text' => 'required|string',
+            'preview'     => 'required|image',
+            'video_url'   => 'required|url',
+        ]);
+
         $about->title_left = request('title_left');
         $about->span = request('span');
         $about->title_right = request('title_right');
