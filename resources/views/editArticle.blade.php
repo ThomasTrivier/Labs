@@ -15,7 +15,7 @@
 
         <div class="form-group">
           <label for=""></label>
-          <img src="{{asset($article->patch)}}" alt="">
+          <img src="{{asset($article->patch)}}" alt="" height="150px" width="300px">
           @if ($errors->has('article_photo'))
             <div class=" row alert alert-danger">
               <span style="margin-left: 10px;">There is a problem with the photo<span/>
@@ -48,7 +48,9 @@
           <label for="">Categorie</label>
           <select name="categorie">
               @foreach ($categories as $categorie)
-                  <option value="{{$categorie->id}}">{{$categorie->category}}</option>
+                  <option value="{{$categorie->id}}" {{($categorie->id == $article->categorie) ? 'selected' : ''}}>
+                    {{$categorie->category}}
+                  </option>
               @endforeach
           </select>
         </div>

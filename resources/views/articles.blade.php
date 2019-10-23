@@ -14,7 +14,7 @@
               <h3 class="box-title">Articles Table</h3>
               <a href="{{route('articles.create')}}" class="btn btn-success">CREATE</a>
               @if ($auth->role == 'admin')
-                <a href="/publish" class="btn btn-primary">PUBLISH</a>
+                <a href="/publish" class="btn btn-primary">PUBLISH ({{$compteur}})</a>
               @endif
             </div>
             <!-- /.box-header -->
@@ -33,42 +33,40 @@
                   <th></th>
                 </tr>
                 @foreach ($articles as $article)
-                  <tr>
-                    <td>{{$article->id}}</td>
-                    <td>
-                        <img src="{{asset($article->patch)}}" alt="" height="150px" width="300px">
-                    </td>
-                    <td>{{$article->article_title}}</td>
-                    @foreach ($users as $user)
-                        @if ($article->author === $user->id)
-                            <td>{{$user->name}}</td>
-                        @endif
-                    @endforeach
-                    @foreach ($categories as $categorie)
-                        @if ($article->categorie === $categorie->id)
-                            <td>{{$categorie->category}}</td>
-                        @endif
-                    @endforeach
-                    <td>
-                      <ul style="list-style: none;padding: 0;">
-                        @foreach ($article->tags()->get() as $tag)
-                            <li>{{$tag->tag}}</li> 
+                    @if ($auth->id == $article->author || $auth->role == "admin") 
+                      <tr>
+                        <td>{{$article->id}}</td>
+                        <td>
+                            <img src="{{asset($article->patch)}}" alt="" height="150px" width="300px">
+                        </td>
+                        <td>{{$article->article_title}}</td>
+                        <td>{{$auth->name}}</td>
+                        @foreach ($categories as $categorie)
+                            @if ($article->categorie === $categorie->id)
+                                <td>{{$categorie->category}}</td>
+                            @endif
                         @endforeach
-                      </ul>
-                    </td>
-                    <td>{{$article->commentaires()->count()}}</td>
-                    <td>{{($article->published == true) ? "Oui" : "Non"}}</td>
-                    <td>
-                      <a href="{{route('articles.edit',$article->id)}}" class="btn btn-primary">UPDATE</a>
-                    </td>
-                    <td>
-                      <form action="{{route('articles.destroy',$article->id)}}" method="POST">
-                          @csrf
-                          @method('DELETE')
-                          <button class="btn btn-danger" type="submit">DELETE</button>
-                      </form>
-                    </td>
-                  </tr>
+                        <td>
+                          <ul style="list-style: none;padding: 0;">
+                            @foreach ($article->tags()->get() as $tag)
+                                <li>{{$tag->tag}}</li> 
+                            @endforeach
+                          </ul>
+                        </td>
+                        <td>{{$article->commentaires()->count()}}</td>
+                        <td>{{($article->published == true) ? "Oui" : "Non"}}</td>
+                        <td>
+                          <a href="{{route('articles.edit',$article->id)}}" class="btn btn-primary">UPDATE</a>
+                        </td>
+                        <td>
+                          <form action="{{route('articles.destroy',$article->id)}}" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button class="btn btn-danger" type="submit">DELETE</button>
+                          </form>
+                        </td>
+                      </tr>
+                    @endif
                 @endforeach
               </tbody></table>
             </div>

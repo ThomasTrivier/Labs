@@ -6,7 +6,7 @@
                 <!-- Single Post -->
                 <div class="single-post">
                     <div class="post-thumbnail">
-                        <img src="{{asset($article->patch)}}" alt="">
+                        <img src="{{asset($article->patch)}}" alt="" height="270px" width="755px">
                         <div class="post-date">
                             <h2>{{$article->created_at->day}}</h2>
                             <h3>{{$article->created_at->shortMonthName}} {{$article->created_at->year}}</h3>
@@ -15,11 +15,16 @@
                     <div class="post-content">
                         <h2 class="post-title">{{$article->article_title}}</h2>
                         <div class="post-meta">
-                            <a href="">{{$user[0]->name}}</a>
-                            <a href="">{{$categorieArticle[0]->category}}, 
-                                @foreach ($article->tags()->get() as $tag)
-                                    {{$tag->tag}} 
-                                @endforeach</a>
+                            <a href="/blog-categorie/{{$categorieArticle[0]->id}}">
+                                {{$categorieArticle[0]->category}}
+                            </a>
+                            @if ($article->tags()->count() >= 1)
+                                <a href=""> 
+                                    @foreach ($article->tags()->get() as $tag)
+                                        {{$tag->tag}} 
+                                    @endforeach
+                                </a> 
+                            @endif
                             <a href="">{{$comments->count()}} Comments</a>
                         </div>
                         <p>{{$article->article_content}}</p>

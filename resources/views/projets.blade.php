@@ -29,7 +29,7 @@
                   <tr>
                     <td>{{$project->id}}</td>
                     <td class="avatar">
-                        <img src="{{asset($project->patch)}}" alt="">
+                        <img src="{{asset($project->patch)}}" alt="" height="271px" width="362px">
                     </td>
                     <td>{{$project->title}}</td>
                     <td>{{$project->description}}</td>

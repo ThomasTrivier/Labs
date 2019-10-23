@@ -15,7 +15,7 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testimonials = Testimonial::all();
+        $testimonials = Testimonial::all()->sortBy('id');
         return view('testimonials', compact('testimonials'));
     }
 

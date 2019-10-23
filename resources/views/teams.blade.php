@@ -15,7 +15,9 @@
     <h3>Choose your leader</h3>
     <select name="leader">
         @foreach ($teams as $leader)
-            <option value="{{$leader->id}}">Member {{$leader->id}}</option>
+            <option value="{{$leader->id}}" {{($leader->leader == "Oui") ? 'selected' : ''}}
+              >Member {{$leader->id}}
+            </option>
         @endforeach
     </select>
 

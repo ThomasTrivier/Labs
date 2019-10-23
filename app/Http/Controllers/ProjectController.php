@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::all()->sortBy('id');
         return view('projets', compact('projects'));
     }
 

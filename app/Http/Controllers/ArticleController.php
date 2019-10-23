@@ -24,11 +24,12 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::all()->sortBy('id');
+        $compteur = Article::where('published',false)->count();
         $users = User::all();
         $categories = Categorie::all();
         $auth = User::find(Auth::id());
-        return view('articles', compact('articles','users','categories','auth'));
+        return view('articles', compact('articles','users','categories','auth','compteur'));
     }
 
     /**

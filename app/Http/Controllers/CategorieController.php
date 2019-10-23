@@ -14,7 +14,7 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        $categories = Categorie::all();
+        $categories = Categorie::all()->sortBy('id');
         return view('categories', compact('categories'));
     }
 
@@ -39,7 +39,7 @@ class CategorieController extends Controller
         $categorie = new Categorie;
 
         request()->validate([
-            'category' => 'required|string',
+            'category' => 'required|string|unique:categories',
         ]);
 
         $categorie->category = request('category');
@@ -72,7 +72,7 @@ class CategorieController extends Controller
         $categorie = Categorie::find($id);
 
         request()->validate([
-            'category' => 'required|string',
+            'category' => 'required|string|unique:categories',
         ]);
 
         $categorie->category = request('category');

@@ -11,9 +11,24 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+// mix.js('resources/js/app.js', 'public/js')
 
+mix.scripts(
+    [
+        "resources/js/ancre.js",
+        "node_modules/jquery/dist/jquery.js",
+        // "resources/js/bootstrap.js",
+        "node_modules/bootstrap/dist/js/bootstrap.js",
+        "node_modules/magnific-popup/dist/jquery.magnific-popup.js",
+        "resources/js/owl.carousel.min.js",
+        "resources/js/circle-progress.min.js",
+        "resources/js/main.js",
+        "resources/js/map.js",
+    ],
+    "public/js/app.js"
+    );
+    
+mix.sass('resources/sass/app.scss', 'public/css');
 mix.styles(
     [
     "resources/css/bootstrap.min.css",
@@ -24,4 +39,4 @@ mix.styles(
     "resources/css/style.css"
     ],
     "public/css/app.css"
-)
+);

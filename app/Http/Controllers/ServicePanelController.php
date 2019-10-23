@@ -14,7 +14,7 @@ class ServicePanelController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
+        $services = Service::all()->sortBy('id');
         return view('servicePanel', compact('services'));
     }
 
@@ -41,7 +41,7 @@ class ServicePanelController extends Controller
         request()->validate([
             'service_icon'  => 'required',
             'service_title' => 'required|string',
-            'description'   => 'required|string',
+            'description'   => 'required|string|min:50',
         ]);
 
         $service->service_icon = request('service_icon');
@@ -78,7 +78,7 @@ class ServicePanelController extends Controller
         request()->validate([
             'service_icon'  => 'required',
             'service_title' => 'required|string',
-            'description'   => 'required|string',
+            'description'   => 'required|string|min:50',
         ]);
 
         $service->service_icon = request('service_icon');

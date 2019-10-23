@@ -12,7 +12,7 @@ class NewsletterController extends Controller
         $sub = new Newsletter;
 
         $validator = Validator::make($req->all(), [
-            'email' => 'required|email:rfc,dns',
+            'email' => 'required|email:rfc,dns|unique:newsletters',
         ]);
 
         if ($validator->fails()) {

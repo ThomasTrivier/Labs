@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group">
-          <label for="">Description</label>
+          <label for="">Description (min. 50 characters)</label>
           @if ($errors->has('description'))
             <div class=" row alert alert-danger">
               <span style="margin-left: 10px;">There is a problem with the text<span/>

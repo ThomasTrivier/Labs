@@ -30,7 +30,7 @@
                   <tr>
                     <td>{{$testimonial->id}}</td>
                     <td class="avatar">
-                        <img src="{{asset($testimonial->patch)}}" alt="">
+                        <img src="{{asset($testimonial->patch)}}" alt="" height="100px" width="100px">
                     </td>
                     <td>{{$testimonial->comment}}</td>
                     <td>{{$testimonial->client_name}}</td>

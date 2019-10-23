@@ -1,7 +1,7 @@
 <!-- Services section -->
 <div class="services-section spad">
     <div class="container">
-        <div class="section-title dark">
+        <div class="section-title dark" id="test">
             <h2>{{$sectionIntel->service_title_left}} <span>{{$sectionIntel->service_span}}</span> {{$sectionIntel->service_title_right}}</h2>
         </div>
         <div class="row">
@@ -20,7 +20,9 @@
                 </div>
             @endforeach
         </div>
-        {{$services->links()}}
+        <div style="text-align: center;">
+            {{$services->links()}}
+        </div>
         <div class="text-center">
             <a href="/services" class="site-btn">{{$sectionIntel->button_text}}</a>
         </div>

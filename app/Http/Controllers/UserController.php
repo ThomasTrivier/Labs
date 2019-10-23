@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::all()->sortBy('id');
         $auth = User::find(Auth::id());
         return view('users', compact('users','auth'));
     }

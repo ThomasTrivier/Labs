@@ -9,7 +9,7 @@ use App\Image;
 class ImageController extends Controller
 {
     public function index(){
-        $images = Image::all()->except(1);
+        $images = Image::all()->except(1)->sortBy('id');
         $logo = Image::find(1);
         return view('images', compact('images','logo'));
     }

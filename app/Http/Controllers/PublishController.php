@@ -11,7 +11,7 @@ use App\Newsletter;
 class PublishController extends Controller
 {
     public function index(){
-        $articles = Article::all();
+        $articles = Article::all()->sortBy('id');
         return view('articlePublish', compact('articles'));
     }
 

@@ -16,7 +16,7 @@ class FormController extends Controller
 
         $validator = Validator::make($req->all(), [
             'name'    => 'required|string',
-            'email'   => 'required|email:rfc,dns',
+            'email'   => 'required|email:rfc,dns|unique:contacts',
             'subject' => 'required|string',
             'message' => 'required|string',
         ]);

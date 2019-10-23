@@ -8,9 +8,13 @@
     </div>
     <!-- slider -->
     <div id="hero-slider" class="owl-carousel">
-        @foreach ($images as $image)
-            <div class="item  hero-item" data-bg="{{asset($image->patch)}}"></div>
-        @endforeach
+        @if ($images->count() == 0)
+            <div class="item  hero-item" data-bg="img/01.jpg"></div>
+        @else
+            @foreach ($images as $image)
+                <div class="item  hero-item" data-bg="{{asset($image->patch)}}"></div>
+            @endforeach
+        @endif
     </div>
 </div>
 <!-- Intro Section End-->

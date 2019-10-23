@@ -66,5 +66,11 @@ class ServicesTableSeeder extends Seeder
             'service_title' => 'Ultra modern',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.',
         ]);
+
+        Service::create([
+            'service_icon' => 'flaticon-012-cube',
+            'service_title' => 'Ultra modern',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla.',
+        ]);
     }
 }

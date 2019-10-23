@@ -14,13 +14,13 @@
         @method('PATCH')
 
         <div class="form-group">
-          <label for="">Photo</label>
+          <label for=""></label>
           @if ($errors->has('photo_path'))
             <div class=" row alert alert-danger">
               <span style="margin-left: 10px;">There is a problem with the photo<span/>
             </div>
           @endif
-          <img src="{{asset($testimonial->patch)}}" alt="">
+          <img src="{{asset($testimonial->patch)}}" alt="" height="100px" width="100px">
           <input type="file" name="photo_path" class="form-control-file" placeholder="" aria-describedby="helpId">
         </div>
 

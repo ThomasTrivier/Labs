@@ -14,7 +14,7 @@
                 @foreach ($searchs as $search)
                     <div class="post-item">
                         <div class="post-thumbnail">
-                            <img src="{{asset($search->patch)}}" alt="">
+                            <img src="{{asset($search->patch)}}" alt="" height="270px" width="755px">
                             <div class="post-date">
                                 <h2>{{$search->created_at->day}}</h2>
                                 <h3>{{$search->created_at->shortMonthName}} {{$search->created_at->year}}</h3>
@@ -23,19 +23,20 @@
                         <div class="post-content">
                             <h2 class="post-title">{{$search->article_title}}</h2>
                             <div class="post-meta">
-                                @foreach ($users as $user)
-                                    @if ($search->author === $user->id)
-                                        <a href="">{{$user->name}}</a>
-                                    @endif
-                                @endforeach
                                 @foreach ($categorieArticle as $categorie)
                                     @if ($search->categorie === $categorie->id)
-                                        <a href="">{{$categorie->category}}, 
-                                        @foreach ($search->tags()->get() as $tag)
-                                            {{$tag->tag}} 
-                                        @endforeach</a>
+                                        <a href="/blog-categorie/{{$categorie->id}}">
+                                            {{$categorie->category}}
+                                        </a>
                                     @endif
                                 @endforeach
+                                @if ($search->tags()->count() >= 1)
+                                    <a href="">
+                                        @foreach ($search->tags()->get() as $tag)
+                                            {{$tag->tag}} 
+                                        @endforeach
+                                    </a>
+                                @endif
                                 <a href="">{{$search->commentaires()->count()}} Comments</a>
                             </div>
                             <p>{{substr($search->article_content,0,320)}}...</p>

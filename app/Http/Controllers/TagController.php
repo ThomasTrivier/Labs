@@ -14,7 +14,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        $tags = Tag::all()->sortBy('id');
         return view('tags', compact('tags'));
     }
 
@@ -39,7 +39,7 @@ class TagController extends Controller
         $tag = new Tag;
 
         request()->validate([
-            'tag' => 'required|string',
+            'tag' => 'required|string|unique:tags',
         ]);
 
         $tag->tag = request('tag');
@@ -72,7 +72,7 @@ class TagController extends Controller
         $tag = Tag::find($id);
 
         request()->validate([
-            'tag' => 'required|string',
+            'tag' => 'required|string|unique:tags',
         ]);
 
         $tag->tag = request('tag');

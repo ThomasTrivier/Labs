@@ -8,7 +8,7 @@
                         <div class="card-img">
                             <img src="{{asset($project->patch)}}" alt="" height="271px" width="362px">
                         </div>
-                        <div class="card-text">
+                        <div class="card-text" style="min-height: 285px;">
                             <h2>{{$project->title}}</h2>
                             <p>{{$project->description}}</p>
                         </div>

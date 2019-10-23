@@ -7,7 +7,7 @@
                 @foreach ($articles as $article)
                     <div class="post-item">
                         <div class="post-thumbnail">
-                            <img src="{{asset($article->patch)}}" alt="">
+                            <img src="{{asset($article->patch)}}" alt="" height="270px" width="755px">
                             <div class="post-date">
                                 <h2>{{$article->created_at->day}}</h2>
                                 <h3>{{$article->created_at->shortMonthName}} {{$article->created_at->year}}</h3>
@@ -16,19 +16,20 @@
                         <div class="post-content">
                             <h2 class="post-title">{{$article->article_title}}</h2>
                             <div class="post-meta">
-                                @foreach ($users as $user)
-                                    @if ($article->author === $user->id)
-                                        <a href="">{{$user->name}}</a>
-                                    @endif
-                                @endforeach
                                 @foreach ($categorieArticle as $categorie)
                                     @if ($article->categorie === $categorie->id)
-                                        <a href="">{{$categorie->category}}, 
-                                        @foreach ($article->tags()->get() as $tag)
-                                            {{$tag->tag}} 
-                                        @endforeach</a>
+                                        <a href="/blog-categorie/{{$categorie->id}}">
+                                            {{$categorie->category}}
+                                        </a>
                                     @endif
                                 @endforeach
+                                @if ($article->tags()->count() >= 1)   
+                                    <a href="">
+                                        @foreach ($article->tags()->get() as $tag)
+                                            {{$tag->tag}} 
+                                        @endforeach
+                                    </a>
+                                @endif
                                 <a href="">{{$article->commentaires()->count()}} Comments</a>
                             </div>
                             <p>{{substr($article->article_content,0,320)}}...</p>

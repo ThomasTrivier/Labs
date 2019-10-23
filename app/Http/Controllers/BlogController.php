@@ -21,7 +21,7 @@ class BlogController extends Controller
         $categories = Categorie::all()->random(6);
         $categorieArticle = Categorie::all();
         $tags = Tag::all()->random(8);
-        $articles = Article::where('published',true)->paginate(3);
+        $articles = Article::where('published',true)->orderBy('id','desc')->paginate(3);
         $users = User::all();
         $tagsArticle = ArticleTag::all();
         $tagsAll = Tag::all();
@@ -34,7 +34,7 @@ class BlogController extends Controller
         $categories = Categorie::all()->random(6);
         $categorieArticle = Categorie::all();
         $tags = Tag::all()->random(8);
-        $articles = Article::where('published',true)->get();
+        $articles = Article::all()->sortByDesc('id')->where('published',true);
         $users = User::all();
         $tagsArticle = ArticleTag::all();
         $tagsAll = Tag::all();
@@ -54,6 +54,7 @@ class BlogController extends Controller
         $categorieArticle = Categorie::all();
         $tags = Tag::all()->random(8);
         $searchs = Article::where('published',true)->where('categorie',$id)->get();
+        $searchs->sortByDesc('id');
         $users = User::all();
         $tagsArticle = ArticleTag::all();
         $tagsAll = Tag::all();
@@ -66,7 +67,7 @@ class BlogController extends Controller
         $categories = Categorie::all()->random(6);
         $categorieArticle = Categorie::all();
         $tags = Tag::all()->random(8);
-        $articles = Article::where('published',true)->get();
+        $articles = Article::all()->sortByDesc('id')->where('published',true);
         $users = User::all();
         $tagsArticle = ArticleTag::all();
         $tagsAll = Tag::all();
