@@ -6,6 +6,10 @@
     <h1>Dashboard</h1>
 @stop
 
+@section('css')
+    <link rel="stylesheet" href="/css/flaticon.css">
+@endsection
+
 @section('content')
     <h1>Edit Service</h1>
 
@@ -20,6 +24,7 @@
               <span style="margin-left: 10px;">There is a problem with the icon<span/>
             </div>
           @endif
+          <i class="{{$service->service_icon}}" style="font-size: 40px;"></i>
           <input type="text" required name="service_icon" value="{{$service->service_icon}}" class="form-control" placeholder="" aria-describedby="helpId">
         </div>
 

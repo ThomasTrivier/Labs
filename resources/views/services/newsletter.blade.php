@@ -9,12 +9,12 @@
                 <!-- newsletter form -->
                 <form class="nl-form" action="/newsletter/subscribe" method="POST">
                     @csrf
-                    @if ($errors->has('email'))
+                    @if ($errors->has('mail'))
                         <div class=" row alert alert-danger">
-                            <span style="margin-left: 10px;">Email Valid Required<span/>
+                            <span style="margin-left: 10px;">{{$errors->first('mail')}}<span/>
                         </div>
-                     @endif
-                    <input type="text" name="email" placeholder="Your e-mail here">
+                    @endif
+                    <input type="text" name="mail" placeholder="Your e-mail here">
                     <button class="site-btn btn-2" type="submit">Newsletter</button>
                 </form>
             </div>

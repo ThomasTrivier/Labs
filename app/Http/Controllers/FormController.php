@@ -12,6 +12,7 @@ use Validator;
 class FormController extends Controller
 {
     public function create(Request $req){
+        $host = back();
         $contact = new Contact();
 
         $validator = Validator::make($req->all(), [
@@ -22,7 +23,13 @@ class FormController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/#con_form')->withErrors($validator)->withInput();
+            if ($host->getSession()->get('_previous')['url'] == 'http://127.0.0.1:8000') {
+                return redirect('/#con_form')->withErrors($validator)->withInput();
+            } else if($host->getSession()->get('_previous')['url'] == 'http://127.0.0.1:8000/contact') {
+                return redirect('/contact/#con_form')->withErrors($validator)->withInput();
+            } else {
+                return redirect('/services/#con_form')->withErrors($validator)->withInput();
+            }
         }
 
         $contact->name = request()->input("name");

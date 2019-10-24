@@ -17,7 +17,7 @@ class PublishController extends Controller
 
     public function publish(Request $req){
         $articles = Article::all();
-        $sub = Newsletter::find(1);
+        $subs = Newsletter::all()->take(-2);
 
         foreach ($articles as $article) {
             if (request($article->id) == "Oui") {
@@ -29,7 +29,9 @@ class PublishController extends Controller
             }
         }
 
-        Mail::to($sub->email)->send(new ArticlePublished($article));
+        foreach ($subs as $sub) {
+            Mail::to($sub->email)->send(new ArticlePublished($article));
+        }
 
         return redirect()->route('articles.index');
     }

@@ -6,6 +6,10 @@
     <h1>Dashboard</h1>
 @stop
 
+@section('css')
+    <link rel="stylesheet" href="/css/flaticon.css">
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-xs-12">
@@ -29,7 +33,7 @@
                   <tr>
                     <td>{{$service->id}}</td>
                     <td class="icon">
-                        <i class="{{$service->service_icon}}"></i>
+                        <i class="{{$service->service_icon}}" style="font-size: 40px;"></i>
                     </td>
                     <td>{{$service->service_title}}</td>
                     <td>{{$service->description}}</td>

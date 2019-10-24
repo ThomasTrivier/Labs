@@ -15,18 +15,29 @@
             </div>
             <!-- contact form -->
             <div class="col-md-6 col-pull">
-                @if ($errors->any())
-                    <div class=" row alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li style="margin-left: 10px;">{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
                 <form class="form-class" id="con_form" method="POST" action="/form">
                     @csrf
                     <div class="row">
+                        @if ($errors->has('name'))
+                            <div class=" row alert alert-danger">
+                                <span style="margin-left: 10px;">{{$errors->first('name')}}<span/>
+                            </div>
+                        @endif
+                        @if ($errors->has('email'))
+                            <div class=" row alert alert-danger">
+                                <span style="margin-left: 10px;">{{$errors->first('email')}}<span/>
+                            </div>
+                        @endif
+                        @if ($errors->has('subject'))
+                            <div class=" row alert alert-danger">
+                                <span style="margin-left: 10px;">{{$errors->first('subject')}}<span/>
+                            </div>
+                        @endif
+                        @if ($errors->has('message'))
+                            <div class=" row alert alert-danger">
+                                <span style="margin-left: 10px;">{{$errors->first('message')}}<span/>
+                            </div>
+                        @endif
                         <div class="col-sm-6">
                             <input type="text" required name="name" value="{{old('name')}}" placeholder="Your name">
                         </div>

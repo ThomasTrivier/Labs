@@ -24,7 +24,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all()->sortBy('id');
+        $articles = Article::all()->sortByDesc('id');
         $compteur = Article::where('published',false)->count();
         $users = User::all();
         $categories = Categorie::all();
@@ -98,7 +98,7 @@ class ArticleController extends Controller
     {
         $article = Article::find($id);
         $categories = Categorie::all();
-        $articleTags = $article->tags()->get();
+        $articleTags = $article->tags;
         $tab = Tag::all();
         $tags = $tab->diff($articleTags);
         return view('editArticle', compact('article','categories','tags','articleTags'));
